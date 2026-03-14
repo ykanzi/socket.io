@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "AvisGuard - Assistant de réponse aux avis",
+  "version": "1.0.0",
+  "description": "Répondez à vos avis clients sur toutes les plateformes grâce à l'IA",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "https://www.google.com/maps/*",
+    "https://business.google.com/*",
+    "https://www.tripadvisor.fr/*",
+    "https://www.tripadvisor.com/*",
+    "https://www.facebook.com/*",
+    "https://www.pagesjaunes.fr/*",
+    "https://www.yelp.fr/*",
+    "https://www.booking.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/maps/*",
+        "https://business.google.com/*",
+        "https://www.tripadvisor.fr/*",
+        "https://www.tripadvisor.com/*",
+        "https://www.facebook.com/*",
+        "https://www.pagesjaunes.fr/*",
+        "https://www.yelp.fr/*",
+        "https://www.booking.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles/inject.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

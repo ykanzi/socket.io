@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AvisGuard - Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- LOGIN PAGE -->
+  <div id="login-page" class="login-container">
+    <div class="login-card">
+      <h1>AvisGuard</h1>
+      <p>Connectez-vous pour gérer vos avis clients</p>
+
+      <div id="login-form">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="login-email" placeholder="vous@exemple.fr">
+        </div>
+        <div class="form-group">
+          <label>Mot de passe</label>
+          <input type="password" id="login-password" placeholder="Votre mot de passe">
+        </div>
+        <button class="btn btn-primary" onclick="handleLogin()">Se connecter</button>
+        <p style="text-align:center;margin-top:16px;font-size:13px;color:var(--gray-500);">
+          Pas de compte ? <a href="#" onclick="showRegisterForm()" style="color:var(--primary);">Créer un compte</a>
+        </p>
+      </div>
+
+      <div id="register-form" style="display:none;">
+        <div class="form-group">
+          <label>Prénom</label>
+          <input type="text" id="reg-firstname" placeholder="Jean">
+        </div>
+        <div class="form-group">
+          <label>Nom</label>
+          <input type="text" id="reg-lastname" placeholder="Dupont">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="reg-email" placeholder="vous@exemple.fr">
+        </div>
+        <div class="form-group">
+          <label>Mot de passe</label>
+          <input type="password" id="reg-password" placeholder="Min. 6 caractères">
+        </div>
+        <button class="btn btn-primary" onclick="handleRegister()">Créer mon compte</button>
+        <p style="text-align:center;margin-top:16px;font-size:13px;color:var(--gray-500);">
+          Déjà un compte ? <a href="#" onclick="showLoginForm()" style="color:var(--primary);">Se connecter</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD PAGE -->
+  <div id="dashboard-page" class="app" style="display:none;">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <span>Avis</span>Guard
+      </div>
+      <nav>
+        <a href="#" class="active" onclick="loadReviews()">
+          Avis <span id="unreplied-badge" class="badge" style="display:none;">0</span>
+        </a>
+        <a href="#" onclick="loadStats()">Statistiques</a>
+        <a href="#" onclick="showAddEstablishmentModal()">Établissements</a>
+        <a href="#" onclick="showSettingsModal()">Paramètres IA</a>
+      </nav>
+      <div style="position:absolute;bottom:24px;left:16px;right:16px;">
+        <div style="font-size:13px;color:var(--gray-300);margin-bottom:8px;">
+          <span id="connection-status" class="status-dot offline"></span>
+          <span id="user-name"></span>
+        </div>
+        <div style="font-size:11px;color:var(--gray-500);margin-bottom:12px;">
+          Plan: <span id="user-plan" style="text-transform:capitalize;"></span>
+        </div>
+        <button class="btn btn-outline btn-sm" style="width:100%;justify-content:center;color:var(--gray-300);border-color:var(--gray-500);" onclick="logout()">
+          Déconnexion
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <div class="header">
+        <div>
+          <h1>Tableau de bord</h1>
+          <select id="establishment-select" onchange="switchEstablishment(this.value)" style="margin-top:8px;padding:4px 8px;border:1px solid var(--gray-300);border-radius:4px;font-size:13px;"></select>
+        </div>
+        <div class="actions">
+          <div class="notif-bell" onclick="toggleNotifPanel()" title="Notifications">
+            <span style="font-size:20px;cursor:pointer;">🔔</span>
+            <span id="notif-badge" class="notif-badge" style="display:none;">0</span>
+          </div>
+          <button class="btn btn-outline" onclick="showAddReviewModal()">+ Ajouter un avis</button>
+          <button class="btn btn-primary" onclick="connectGoogle()">Connecter Google</button>
+        </div>
+        <!-- Notification Panel -->
+        <div id="notif-panel" class="notif-panel" style="display:none;">
+          <div class="notif-panel-header">
+            <strong>Notifications</strong>
+            <a href="#" onclick="markAllNotifsRead()" style="font-size:12px;color:var(--primary);">Tout marquer comme lu</a>
+          </div>
+          <div id="notif-list" class="notif-list"></div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="label">Total avis</div>
+          <div class="value" id="stat-total">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Note moyenne</div>
+          <div class="value" id="stat-rating">-</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Taux de réponse</div>
+          <div class="value" id="stat-response-rate">0%</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Avis négatifs</div>
+          <div class="value" id="stat-negative">0</div>
+        </div>
+      </div>
+
+      <!-- Platform Stats -->
+      <div class="stats-grid" id="platform-stats"></div>
+
+      <!-- Reviews -->
+      <div class="reviews-container">
+        <div class="reviews-header">
+          <h2>Avis récents</h2>
+          <div class="filters">
+            <select id="filter-platform" onchange="loadReviews()">
+              <option value="">Toutes les plateformes</option>
+              <option value="google">Google</option>
+              <option value="facebook">Facebook</option>
+              <option value="tripadvisor">TripAdvisor</option>
+              <option value="pagesjaunes">Pages Jaunes</option>
+            </select>
+            <select id="filter-sentiment" onchange="loadReviews()">
+              <option value="">Tous les sentiments</option>
+              <option value="positive">Positif</option>
+              <option value="neutre">Neutre</option>
+              <option value="negative">Négatif</option>
+            </select>
+          </div>
+        </div>
+        <div id="reviews-list"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal-overlay" class="modal-overlay" onclick="if(event.target===this)closeModal()">
+    <div class="modal">
+      <h3 id="modal-title"></h3>
+      <div id="modal-body"></div>
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:20px;">
+        <button class="btn btn-outline" onclick="closeModal()">Annuler</button>
+        <button class="btn btn-primary" id="modal-submit">Confirmer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    function handleLogin() {
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+      login(email, password).catch(e => showToast(e.message, 'error'));
+    }
+    function handleRegister() {
+      const email = document.getElementById('reg-email').value;
+      const password = document.getElementById('reg-password').value;
+      const firstName = document.getElementById('reg-firstname').value;
+      const lastName = document.getElementById('reg-lastname').value;
+      register(email, password, firstName, lastName).catch(e => showToast(e.message, 'error'));
+    }
+    function showRegisterForm() {
+      document.getElementById('login-form').style.display = 'none';
+      document.getElementById('register-form').style.display = 'block';
+    }
+    function showLoginForm() {
+      document.getElementById('register-form').style.display = 'none';
+      document.getElementById('login-form').style.display = 'block';
+    }
+    function switchEstablishment(id) {
+      currentEstablishment = { id };
+      loadStats();
+      loadReviews();
+    }
+    async function connectGoogle() {
+      if (!currentEstablishment) return showToast('Créez d\'abord un établissement', 'error');
+      try {
+        const data = await apiCall(`/platforms/google/auth-url?establishmentId=${currentEstablishment.id}`);
+        window.open(data.url, 'google-auth', 'width=600,height=700');
+      } catch(e) { showToast('Erreur: ' + e.message, 'error'); }
+    }
+    function showSettingsModal() {
+      if (!currentEstablishment) return;
+      document.getElementById('modal-title').textContent = 'Paramètres IA';
+      document.getElementById('modal-body').innerHTML = `
+        <div class="form-group"><label>Ton</label>
+          <select id="set-tone"><option value="professionnel">Professionnel</option><option value="amical">Amical</option><option value="formel">Formel</option><option value="decontracte">Décontracté</option></select></div>
+        <div class="form-group"><label>Tutoiement</label>
+          <select id="set-tu"><option value="vous">Vouvoiement</option><option value="tu">Tutoiement</option></select></div>
+        <div class="form-group"><label>Signature</label>
+          <input id="set-signature" placeholder="L'équipe AvisGuard"></div>
+        <div class="form-group"><label>Auto-réponse avis positifs</label>
+          <select id="set-auto-pos"><option value="1">Oui</option><option value="0">Non</option></select></div>
+        <div class="form-group"><label>Auto-réponse avis négatifs</label>
+          <select id="set-auto-neg"><option value="0">Non (validation manuelle)</option><option value="1">Oui</option></select></div>`;
+      document.getElementById('modal-submit').onclick = async () => {
+        await apiCall(`/platforms/establishments/${currentEstablishment.id}/ai-settings`, {
+          method: 'PUT',
+          body: JSON.stringify({
+            tone: document.getElementById('set-tone').value,
+            useTu: document.getElementById('set-tu').value,
+            signature: document.getElementById('set-signature').value,
+            autoReplyPositive: document.getElementById('set-auto-pos').value === '1',
+            autoReplyNegative: document.getElementById('set-auto-neg').value === '1'
+          })
+        });
+        closeModal();
+        showToast('Paramètres IA sauvegardés', 'success');
+      };
+      openModal();
+    }
+  </script>
+</body>
+</html>
