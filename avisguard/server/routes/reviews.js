@@ -1,9 +1,13 @@
 const express = require('express');
 const { v4: uuidv4 } = require('uuid');
 const { authMiddleware } = require('../middleware/auth');
-const { reviews, establishments, responses, alerts } = require('../db/database');
+const { reviews, establishments, responses, alerts, monthlyUsage, auditLogs } = require('../db/database');
 const { generateReviewResponse, analyzeSentiment } = require('../services/ai');
 const { notifyNewReview, notifyResponsePublished } = require('../services/notifications');
+const { validate } = require('../middleware/validation');
+const { checkReviewQuota, checkAiQuota, getCurrentMonth } = require('../middleware/quota');
+const { aiLimiter } = require('../middleware/security');
+const logger = require('../services/logger');
 
 const router = express.Router();
 
@@ -64,7 +68,7 @@ router.get('/:establishmentId/unreplied', authMiddleware, (req, res) => {
 });
 
 // POST /api/reviews/add — Ajouter un avis manuellement (ou depuis l'extension)
-router.post('/add', authMiddleware, (req, res) => {
+router.post('/add', authMiddleware, validate('addReview'), checkReviewQuota, (req, res) => {
   try {
     const { establishmentId, platform, authorName, rating, text, platformReviewId, publishedAt } = req.body;
 
@@ -93,6 +97,10 @@ router.post('/add', authMiddleware, (req, res) => {
 
     const review = reviews.findById(id);
 
+    // Incrémenter le compteur de quota
+    monthlyUsage.incrementReviews(req.user.id, getCurrentMonth());
+    auditLogs.log({ userId: req.user.id, action: 'review_added', resource: 'review', resourceId: id, ipAddress: req.ip });
+
     // Notifier via Socket.IO + email
     if (req.app.io) {
       req.app.io.to(`user:${req.user.id}`).emit('new_review', review);
@@ -109,7 +117,7 @@ router.post('/add', authMiddleware, (req, res) => {
 });
 
 // POST /api/reviews/:reviewId/generate-response — Générer une réponse IA
-router.post('/:reviewId/generate-response', authMiddleware, async (req, res) => {
+router.post('/:reviewId/generate-response', authMiddleware, aiLimiter, checkAiQuota, async (req, res) => {
   try {
     const review = reviews.findById(req.params.reviewId);
     if (!review) return res.status(404).json({ error: 'Avis non trouvé' });
@@ -129,6 +137,9 @@ router.post('/:reviewId/generate-response', authMiddleware, async (req, res) => 
       generatedBy: aiResponse.generatedBy,
       status: 'draft'
     });
+
+    monthlyUsage.incrementAiResponses(req.user.id, getCurrentMonth());
+    auditLogs.log({ userId: req.user.id, action: 'ai_response_generated', resource: 'response', resourceId: id, ipAddress: req.ip });
 
     res.json({
       response: {
@@ -205,6 +216,32 @@ router.post('/:reviewId/publish-response', authMiddleware, async (req, res) => {
 router.put('/:reviewId/read', authMiddleware, (req, res) => {
   reviews.markAsRead(req.params.reviewId);
   res.json({ success: true });
+});
+
+// GET /api/reviews/:establishmentId/export — Exporter les avis en CSV
+router.get('/:establishmentId/export', authMiddleware, async (req, res) => {
+  try {
+    const establishment = establishments.findById(req.params.establishmentId);
+    if (!establishment || establishment.user_id !== req.user.id) {
+      return res.status(404).json({ error: 'Établissement non trouvé' });
+    }
+
+    const reviewList = reviews.findByEstablishment(req.params.establishmentId, { limit: 10000 });
+
+    const header = 'Date,Plateforme,Auteur,Note,Sentiment,Texte,Repondu\n';
+    const rows = reviewList.map(r =>
+      `"${r.published_at || ''}","${r.platform}","${(r.author_name || '').replace(/"/g, '""')}",${r.rating},"${r.sentiment}","${(r.text || '').replace(/"/g, '""')}",${r.is_replied ? 'Oui' : 'Non'}`
+    ).join('\n');
+
+    auditLogs.log({ userId: req.user.id, action: 'export_csv', resource: 'establishment', resourceId: establishment.id, ipAddress: req.ip });
+
+    res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+    res.setHeader('Content-Disposition', `attachment; filename=avis-${establishment.name}-${new Date().toISOString().slice(0, 10)}.csv`);
+    res.send('\uFEFF' + header + rows); // BOM for Excel UTF-8
+  } catch (error) {
+    logger.error('Export CSV error', { error: error.message });
+    res.status(500).json({ error: 'Erreur serveur' });
+  }
 });
 
 module.exports = router;

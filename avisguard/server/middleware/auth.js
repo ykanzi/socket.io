@@ -21,10 +21,20 @@ function authMiddleware(req, res, next) {
 
 function generateToken(user) {
   return jwt.sign(
-    { id: user.id, email: user.email, plan: user.plan },
+    { id: user.id, email: user.email, plan: user.plan, role: user.role || 'user' },
     config.jwtSecret,
     { expiresIn: '7d' }
   );
 }
 
-module.exports = { authMiddleware, generateToken };
+// Middleware admin
+function adminMiddleware(req, res, next) {
+  authMiddleware(req, res, () => {
+    if (req.user.role !== 'admin') {
+      return res.status(403).json({ error: 'Accès réservé aux administrateurs' });
+    }
+    next();
+  });
+}
+
+module.exports = { authMiddleware, adminMiddleware, generateToken };

@@ -7,7 +7,10 @@ CREATE TABLE IF NOT EXISTS users (
   password_hash TEXT NOT NULL,
   first_name TEXT,
   last_name TEXT,
+  role TEXT DEFAULT 'user' CHECK(role IN ('user', 'admin')),
   plan TEXT DEFAULT 'starter' CHECK(plan IN ('starter', 'pro', 'premium')),
+  email_verified INTEGER DEFAULT 0,
+  email_verify_token TEXT,
   stripe_customer_id TEXT,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
@@ -121,6 +124,40 @@ CREATE TABLE IF NOT EXISTS daily_stats (
   FOREIGN KEY (establishment_id) REFERENCES establishments(id) ON DELETE CASCADE
 );
 
+-- Tokens de reset de mot de passe
+CREATE TABLE IF NOT EXISTS password_reset_tokens (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  token TEXT UNIQUE NOT NULL,
+  expires_at DATETIME NOT NULL,
+  used INTEGER DEFAULT 0,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Suivi d'utilisation mensuel (quotas par plan)
+CREATE TABLE IF NOT EXISTS monthly_usage (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  month TEXT NOT NULL,
+  reviews_count INTEGER DEFAULT 0,
+  ai_responses_count INTEGER DEFAULT 0,
+  UNIQUE(user_id, month),
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Journal d'audit
+CREATE TABLE IF NOT EXISTS audit_logs (
+  id TEXT PRIMARY KEY,
+  user_id TEXT,
+  action TEXT NOT NULL,
+  resource TEXT,
+  resource_id TEXT,
+  details TEXT,
+  ip_address TEXT,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Index pour les performances
 CREATE INDEX IF NOT EXISTS idx_reviews_establishment ON reviews(establishment_id);
 CREATE INDEX IF NOT EXISTS idx_reviews_platform ON reviews(platform);
@@ -130,3 +167,7 @@ CREATE INDEX IF NOT EXISTS idx_reviews_published_at ON reviews(published_at);
 CREATE INDEX IF NOT EXISTS idx_responses_review ON responses(review_id);
 CREATE INDEX IF NOT EXISTS idx_alerts_user ON alerts(user_id);
 CREATE INDEX IF NOT EXISTS idx_daily_stats_establishment ON daily_stats(establishment_id, date);
+CREATE INDEX IF NOT EXISTS idx_password_reset_token ON password_reset_tokens(token);
+CREATE INDEX IF NOT EXISTS idx_monthly_usage_user ON monthly_usage(user_id, month);
+CREATE INDEX IF NOT EXISTS idx_audit_logs_user ON audit_logs(user_id);
+CREATE INDEX IF NOT EXISTS idx_audit_logs_created ON audit_logs(created_at);

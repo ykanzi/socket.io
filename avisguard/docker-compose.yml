@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  avisguard:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      - ./server/db:/app/server/db
+      - ./server/logs:/app/server/logs
+    restart: unless-stopped

@@ -25,10 +25,10 @@ function initSchema() {
 const users = {
   create(user) {
     const stmt = getDb().prepare(`
-      INSERT INTO users (id, email, password_hash, first_name, last_name)
-      VALUES (?, ?, ?, ?, ?)
+      INSERT INTO users (id, email, password_hash, first_name, last_name, role, email_verify_token)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
     `);
-    return stmt.run(user.id, user.email, user.passwordHash, user.firstName, user.lastName);
+    return stmt.run(user.id, user.email, user.passwordHash, user.firstName, user.lastName, user.role || 'user', user.emailVerifyToken || null);
   },
 
   findByEmail(email) {
@@ -41,6 +41,30 @@ const users = {
 
   updatePlan(id, plan) {
     return getDb().prepare('UPDATE users SET plan = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?').run(plan, id);
+  },
+
+  verifyEmail(id) {
+    return getDb().prepare('UPDATE users SET email_verified = 1, email_verify_token = NULL, updated_at = CURRENT_TIMESTAMP WHERE id = ?').run(id);
+  },
+
+  findByVerifyToken(token) {
+    return getDb().prepare('SELECT * FROM users WHERE email_verify_token = ?').get(token);
+  },
+
+  findAll({ limit = 50, offset = 0 } = {}) {
+    return getDb().prepare('SELECT id, email, first_name, last_name, role, plan, email_verified, stripe_customer_id, created_at FROM users ORDER BY created_at DESC LIMIT ? OFFSET ?').all(limit, offset);
+  },
+
+  count() {
+    return getDb().prepare('SELECT COUNT(*) as count FROM users').get().count;
+  },
+
+  updateRole(id, role) {
+    return getDb().prepare('UPDATE users SET role = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?').run(role, id);
+  },
+
+  deleteUser(id) {
+    return getDb().prepare('DELETE FROM users WHERE id = ?').run(id);
   }
 };
 
@@ -224,4 +248,66 @@ const alerts = {
   }
 };
 
-module.exports = { getDb, users, establishments, reviews, responses, alerts };
+// --- Password Reset Tokens ---
+const passwordResets = {
+  create(reset) {
+    const stmt = getDb().prepare(`
+      INSERT INTO password_reset_tokens (id, user_id, token, expires_at)
+      VALUES (?, ?, ?, ?)
+    `);
+    return stmt.run(reset.id, reset.userId, reset.token, reset.expiresAt);
+  },
+
+  findByToken(token) {
+    return getDb().prepare('SELECT * FROM password_reset_tokens WHERE token = ? AND used = 0 AND expires_at > datetime(\'now\')').get(token);
+  },
+
+  markUsed(id) {
+    return getDb().prepare('UPDATE password_reset_tokens SET used = 1 WHERE id = ?').run(id);
+  }
+};
+
+// --- Monthly Usage (quotas) ---
+const monthlyUsage = {
+  getOrCreate(userId, month) {
+    let usage = getDb().prepare('SELECT * FROM monthly_usage WHERE user_id = ? AND month = ?').get(userId, month);
+    if (!usage) {
+      const { v4: uuidv4 } = require('uuid');
+      getDb().prepare('INSERT INTO monthly_usage (id, user_id, month) VALUES (?, ?, ?)').run(uuidv4(), userId, month);
+      usage = getDb().prepare('SELECT * FROM monthly_usage WHERE user_id = ? AND month = ?').get(userId, month);
+    }
+    return usage;
+  },
+
+  incrementReviews(userId, month) {
+    this.getOrCreate(userId, month);
+    return getDb().prepare('UPDATE monthly_usage SET reviews_count = reviews_count + 1 WHERE user_id = ? AND month = ?').run(userId, month);
+  },
+
+  incrementAiResponses(userId, month) {
+    this.getOrCreate(userId, month);
+    return getDb().prepare('UPDATE monthly_usage SET ai_responses_count = ai_responses_count + 1 WHERE user_id = ? AND month = ?').run(userId, month);
+  }
+};
+
+// --- Audit Logs ---
+const auditLogs = {
+  log(entry) {
+    const { v4: uuidv4 } = require('uuid');
+    const stmt = getDb().prepare(`
+      INSERT INTO audit_logs (id, user_id, action, resource, resource_id, details, ip_address)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `);
+    return stmt.run(uuidv4(), entry.userId, entry.action, entry.resource, entry.resourceId, entry.details, entry.ipAddress);
+  },
+
+  findAll({ limit = 50, offset = 0 } = {}) {
+    return getDb().prepare('SELECT * FROM audit_logs ORDER BY created_at DESC LIMIT ? OFFSET ?').all(limit, offset);
+  },
+
+  findByUser(userId, limit = 20) {
+    return getDb().prepare('SELECT * FROM audit_logs WHERE user_id = ? ORDER BY created_at DESC LIMIT ?').all(userId, limit);
+  }
+};
+
+module.exports = { getDb, users, establishments, reviews, responses, alerts, passwordResets, monthlyUsage, auditLogs };
