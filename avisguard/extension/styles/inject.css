@@ -1,0 +1,187 @@
+/* AvisGuard - Styles injectés dans les pages de review */
+
+.avisguard-btn {
+  margin: 8px 0;
+  display: inline-block;
+}
+
+.avisguard-generate {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+}
+
+.avisguard-generate:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+  transform: translateY(-1px);
+}
+
+.avisguard-generate:disabled {
+  opacity: 0.7;
+  cursor: wait;
+  transform: none;
+}
+
+.avisguard-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+/* Response overlay */
+.avisguard-response-box {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 14px;
+  margin: 8px 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  max-width: 500px;
+  z-index: 10000;
+  position: relative;
+}
+
+.avisguard-response-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.avisguard-badge {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.avisguard-close {
+  cursor: pointer;
+  font-size: 18px;
+  color: #9ca3af;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.avisguard-close:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.avisguard-textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: inherit;
+  line-height: 1.5;
+  color: #374151;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.avisguard-textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.avisguard-response-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.avisguard-response-actions button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #374151;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.avisguard-response-actions button:hover {
+  background: #f9fafb;
+}
+
+.avisguard-copy {
+  background: #f0fdf4 !important;
+  color: #166534 !important;
+  border-color: #86efac !important;
+}
+
+.avisguard-copy:hover {
+  background: #dcfce7 !important;
+}
+
+.avisguard-paste {
+  background: #2563eb !important;
+  color: white !important;
+  border-color: #2563eb !important;
+}
+
+.avisguard-paste:hover {
+  background: #1d4ed8 !important;
+}
+
+.avisguard-regenerate {
+  background: white !important;
+  color: #6b7280 !important;
+}
+
+/* Notification flottante */
+.avisguard-notification {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #111827;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  z-index: 99999;
+  animation: avisguard-slideUp 0.3s ease;
+}
+
+@keyframes avisguard-slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

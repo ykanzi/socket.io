@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { width: 340px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f9fafb; color: #111827; }
+
+    .header { background: linear-gradient(135deg, #1e3a5f, #2563eb); color: white; padding: 16px; text-align: center; }
+    .header h1 { font-size: 18px; font-weight: 700; }
+    .header p { font-size: 12px; opacity: 0.8; margin-top: 4px; }
+
+    .content { padding: 16px; }
+
+    /* Login */
+    .form-group { margin-bottom: 12px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 500; margin-bottom: 4px; color: #374151; }
+    .form-group input, .form-group select { width: 100%; padding: 8px 10px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 13px; }
+
+    .btn { display: block; width: 100%; padding: 10px; border: none; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; text-align: center; }
+    .btn-primary { background: #2563eb; color: white; }
+    .btn-primary:hover { background: #1d4ed8; }
+    .btn-outline { background: white; border: 1px solid #d1d5db; color: #374151; margin-top: 8px; }
+    .btn-outline:hover { background: #f3f4f6; }
+    .btn-danger { background: #dc2626; color: white; margin-top: 8px; }
+    .btn-danger:hover { background: #b91c1c; }
+
+    /* Dashboard */
+    .user-info { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; padding: 10px; background: white; border-radius: 8px; border: 1px solid #e5e7eb; }
+    .user-avatar { width: 36px; height: 36px; border-radius: 50%; background: #2563eb; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
+    .user-name { font-weight: 600; font-size: 14px; }
+    .user-plan { font-size: 11px; color: #6b7280; text-transform: capitalize; }
+
+    .stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+    .stat-box { background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; text-align: center; }
+    .stat-box .value { font-size: 22px; font-weight: 700; color: #2563eb; }
+    .stat-box .label { font-size: 11px; color: #6b7280; margin-top: 2px; }
+
+    .establishment-select { margin-bottom: 16px; }
+    .establishment-select select { width: 100%; padding: 8px 10px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 13px; }
+
+    .status { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #6b7280; margin-bottom: 12px; }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .status-dot.online { background: #16a34a; }
+    .status-dot.offline { background: #d1d5db; }
+
+    .link { display: block; text-align: center; font-size: 12px; color: #2563eb; text-decoration: none; margin-top: 12px; }
+    .link:hover { text-decoration: underline; }
+
+    .error { color: #dc2626; font-size: 12px; margin-top: 8px; text-align: center; display: none; }
+
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>AvisGuard</h1>
+    <p>Assistant IA pour vos avis clients</p>
+  </div>
+
+  <!-- Login View -->
+  <div id="login-view" class="content">
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" id="login-email" placeholder="vous@exemple.fr">
+    </div>
+    <div class="form-group">
+      <label>Mot de passe</label>
+      <input type="password" id="login-password" placeholder="Votre mot de passe">
+    </div>
+    <button class="btn btn-primary" id="btn-login">Se connecter</button>
+    <div id="login-error" class="error"></div>
+    <a href="http://localhost:3000" target="_blank" class="link">Pas de compte ? Créer un compte</a>
+  </div>
+
+  <!-- Dashboard View -->
+  <div id="dashboard-view" class="content hidden">
+    <div class="user-info">
+      <div class="user-avatar" id="user-avatar">?</div>
+      <div>
+        <div class="user-name" id="user-name">-</div>
+        <div class="user-plan" id="user-plan">-</div>
+      </div>
+    </div>
+
+    <div class="status">
+      <span class="status-dot" id="status-dot"></span>
+      <span id="status-text">Vérification...</span>
+    </div>
+
+    <div class="establishment-select">
+      <select id="establishment-select">
+        <option value="">Chargement...</option>
+      </select>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="value" id="stat-total">-</div>
+        <div class="label">Total avis</div>
+      </div>
+      <div class="stat-box">
+        <div class="value" id="stat-unreplied">-</div>
+        <div class="label">Non répondus</div>
+      </div>
+      <div class="stat-box">
+        <div class="value" id="stat-rating">-</div>
+        <div class="label">Note moyenne</div>
+      </div>
+      <div class="stat-box">
+        <div class="value" id="stat-response">-</div>
+        <div class="label">Taux réponse</div>
+      </div>
+    </div>
+
+    <a href="http://localhost:3000" target="_blank" class="btn btn-outline">Ouvrir le Dashboard</a>
+    <button class="btn btn-danger" id="btn-logout">Déconnexion</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
