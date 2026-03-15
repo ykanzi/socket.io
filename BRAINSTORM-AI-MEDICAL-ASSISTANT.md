@@ -176,167 +176,313 @@ reglementaires (l'IA ne remplace jamais un medecin).
 
 ---
 
-## 3. Objets Connectes & Wearables
+## 3. Objets Connectes & Wearables (Donnees actualisees 2025-2026)
 
-### 3.1 Comparatif des Appareils Recommandes
-
-#### TIER 1 - Montres Connectees (Usage Quotidien)
-
-| Appareil | Capteurs Sante | Points Forts | Points Faibles | Prix |
-|----------|---------------|--------------|----------------|------|
-| **Apple Watch Ultra 2 / Series 10** | ECG, SpO2, temperature, accelerometre, gyroscope, capteur optique cardiaque | Meilleur ecosysteme HealthKit, detection chutes/accidents, FDA-cleared ECG | iOS uniquement, autonomie 18-36h | 450-900 EUR |
-| **Samsung Galaxy Watch 7 / Ultra** | ECG, SpO2, BIA (composition corporelle), temperature cutanee | Analyse composition corporelle unique, bon ecosysteme Samsung Health | Meilleur avec Samsung, autonomie 40h | 300-700 EUR |
-| **Google Pixel Watch 3** | ECG, SpO2, capteur cardiaque, accelerometre | Integration Google Fit/Health Connect, Fitbit integre | Ecosysteme plus jeune | 350-500 EUR |
-| **Withings ScanWatch 2** | ECG, SpO2, temperature | Design montre classique, autonomie 30 jours, marque francaise medtech | Moins de features smart | 300-400 EUR |
-| **Garmin Venu 3** | SpO2, cardio optique, Body Battery | Autonomie 14 jours, excellent suivi sportif | Pas d'ECG, ecosysteme ferme | 400-500 EUR |
-
-#### TIER 2 - Bracelets Connectes (Sans Ecran de Montre)
-
-| Appareil | Capteurs | Points Forts | Points Faibles | Prix |
-|----------|----------|--------------|----------------|------|
-| **Xiaomi Smart Band 9** | Cardio optique, SpO2, accelerometre | Ultra abordable, leger (16g), autonomie 21 jours, ecran AMOLED | Capteurs moins precis que montres | 35-50 EUR |
-| **Xiaomi Smart Band 9 Pro** | Cardio, SpO2, GPS integre | GPS autonome, ecran plus grand, autonomie 21j | Pas d'ECG | 55-70 EUR |
-| **Huawei Band 9** | Cardio, SpO2, temperature, accelerometre | TruSleep 4.0 (sommeil precis), autonomie 14j, tres leger (14g) | Ecosysteme Huawei ferme | 50-60 EUR |
-| **Whoop 4.0** | Cardio, SpO2, temperature cutanee, mouvement, EDA (stress) | Analyse recuperation/strain poussee, discret, etanche, sans ecran | Abonnement obligatoire (30 EUR/mois), pas d'ecran | 0 EUR + 30 EUR/mois |
-| **Fitbit Charge 6** | Cardio, SpO2, ECG, EDA (stress), temperature | ECG sur un bracelet (!), Google integre, autonomie 7j | Abonnement Fitbit Premium pour toutes les features | 130-160 EUR |
-| **Fitbit Inspire 3** | Cardio, SpO2, temperature, accelerometre | Tres leger, simple, autonomie 10 jours, bon marche | Pas d'ECG, pas de GPS | 80-100 EUR |
-| **Amazon Halo Band** (si disponible) | Cardio, temperature, micro (analyse tonalite), BIA | Analyse composition corporelle via camera, analyse vocale emotion | Controverse vie privee, service arrete dans certains pays | 70-100 EUR |
-| **Samsung Galaxy Fit 3** | Cardio, SpO2, accelerometre | Leger (18g), autonomie 13 jours, ecran AMOLED, Samsung Health | Pas d'ECG, pas de temperature | 50-60 EUR |
-| **Garmin Vivosmart 5** | Cardio, SpO2, Body Battery, stress | Ecran tactile fin, Garmin Coach, autonomie 7 jours | Design basique | 130-150 EUR |
-| **Honor Band 7** | Cardio, SpO2, accelerometre | Tres leger, autonomie 14 jours, pas cher | Ecosysteme limite | 40-50 EUR |
-| **Amazfit Band 7** | Cardio, SpO2, accelerometre, stress | Grand ecran, 120+ modes sport, Zepp OS, autonomie 18j | Marque moins connue | 40-50 EUR |
-| **FITVII Bracelet Medical** | Cardio, tension arterielle, SpO2, temperature, ECG | Bracelet avec ECG + tension = unique a ce prix | Precision questionnable (non certifie medical) | 40-60 EUR |
-
-#### TIER 3 - Bagues Connectees
-
-| Appareil | Capteurs | Points Forts | Points Faibles | Prix |
-|----------|----------|--------------|----------------|------|
-| **Oura Ring Gen 3/4** | Temperature, SpO2, cardio, mouvement | Ultra discret, autonomie 7 jours, meilleur suivi sommeil du marche | Pas d'ecran, abonnement mensuel | 300-400 EUR + 6 EUR/mois |
-| **Ultrahuman Ring Air** | Temperature, SpO2, cardio, mouvement | Pas d'abonnement, leger (2.4g), design titane | Moins precis que Oura | 350 EUR |
-| **Samsung Galaxy Ring** | Temperature, cardio, SpO2, mouvement, ronflement | Integration Samsung Health, autonomie 7j, pas d'abonnement | Samsung uniquement | 400-450 EUR |
-| **RingConn Gen 2** | Cardio, SpO2, temperature, stress | Pas d'abonnement, autonomie 12 jours, app complete | Marque jeune | 250-300 EUR |
-| **Circular Ring Slim** | Cardio, SpO2, temperature, mouvement | Design fin elegant, alertes vibration, autonomie 8j | Marque francaise mais petite | 280-350 EUR |
-| **Movano Evie Ring** | Cardio, SpO2, temperature, SpO2 continu | Concu specifiquement pour les femmes (suivi cycle precis) | Disponibilite limitee | 270-300 EUR |
-
-#### TIER 4 - Patchs & Capteurs Corporels
-
-| Appareil | Capteurs | Points Forts | Points Faibles | Prix |
-|----------|----------|--------------|----------------|------|
-| **Abbott FreeStyle Libre 3** | Glycemie en continu (CGM) | Patch bras, lecture continue 14j, scan smartphone | Prescription necessaire, usage diabete | ~50 EUR/capteur (14j) |
-| **Dexcom G7** | Glycemie en continu (CGM) | Patch bras, alertes temps reel, tres precis | Prescription, cout eleve | ~70 EUR/capteur (10j) |
-| **Dexcom Stelo** | Glycemie en continu | Premier CGM en vente libre (sans ordonnance aux US) | Pas encore disponible partout | ~100 USD/mois |
-| **Biobeat Patch** | ECG continu, tension, SpO2, frequence respi | Medical-grade, monitoring post-hospitalisation | Usage medical encadre, pas grand public | Sur prescription |
-| **Vivalnk Medical Patch** | ECG, temperature, mouvement, posture | Patch jetable, monitoring continu, certifie medical | Usage hospitalier/clinique | Professionnel |
-| **Byteflies Sensor Dot** | EEG, EMG, ECG, mouvement | Multi-capteurs neurologique + cardiaque, recherche medicale | Tres specialise, pas grand public | Professionnel |
-| **Nutrix Patch** | Glycemie non-invasive (en developpement) | Pas de piqure, patch colle sur la peau | Technologie emergente, pas encore disponible | A venir |
-| **Levels CGM** (programme) | Glycemie via Dexcom/Libre | App + coaching IA nutrition base sur glycemie en temps reel | Abonnement US principalement | ~200 USD/mois |
-
-#### TIER 5 - Vetements & Textiles Connectes
-
-| Appareil | Capteurs | Points Forts | Points Faibles | Prix |
-|----------|----------|--------------|----------------|------|
-| **Hexoskin Smart Shirt** | ECG, frequence respi, accelerometre | T-shirt avec capteurs integres, donnees de qualite medicale | Lavage delicat, module a retirer | 400-500 EUR |
-| **Sensoria Smart Socks** | Pression plantaire, accelerometre | Prevention ulceres diabetiques (pieds), analyse marche | Tres niche | 200-300 EUR |
-| **Nadi X Yoga Pants** | Accelerometre, gyroscope (hanches, genoux, chevilles) | Vibrations haptiques pour corriger les postures yoga | Tres niche, cher | 250 EUR |
-| **Myontec MBody** | EMG (activite musculaire) | Short avec capteurs musculaires, reeducation | Usage sportif pro | 500+ EUR |
-| **Owlet Smart Sock (bebe)** | SpO2, cardio | Chaussette bebe, surveillance SpO2 nuit, alerte parents | Bebe uniquement, controverse FDA | 300-400 EUR |
-| **Skiin Smart Underwear** | ECG, temperature, mouvement, activite | Sous-vetements connectes, invisible, confortable | Disponibilite limitee, cher | 300+ EUR |
-| **Athos Smart Clothing** | EMG (activite musculaire), cardio | T-shirt/short avec electromyographie en temps reel | Prix eleve, sportifs principalement | 400+ EUR |
-
-#### TIER 6 - Clips, Pendentifs & Autres Formes
-
-| Appareil | Capteurs | Points Forts | Points Faibles | Prix |
-|----------|----------|--------------|----------------|------|
-| **Bellabeat Leaf** | Mouvement, sommeil, stress, cycle | Pendentif/clip/bracelet bijou, concu pour les femmes | Pas de cardio optique | 100-150 EUR |
-| **Lief Smart Patch** | ECG, HRV, respiration | Patch thoracique, biofeedback respiration en temps reel | Niche stress/anxiete | 200-250 EUR |
-| **Spire Health Tag** | Respiration, mouvement, sommeil | Clip minuscule qui se fixe aux vetements | Pas de cardio | 100-150 EUR |
-| **CarePredict Tempo** | Accelerometre, capteurs proximite | Pendentif/bracelet senior, detection patterns comportement | B2B (EHPAD), pas grand public | Professionnel |
-| **Medical Guardian** | GPS, detection chute, bouton SOS | Pendentif d'alerte medicale senior, appel secours | Pas de capteurs sante, juste securite | 30-50 EUR/mois |
-| **Theragun Sense** | Accelerometre, capteur pression | Pistolet de massage + capteur guidage IA | Usage recuperation uniquement | 300 EUR |
-| **Muse 2 / Muse S** | EEG (ondes cerebrales), cardio, accelerometre, respi | Bandeau meditation, neurofeedback en temps reel | Niche meditation/stress | 250-350 EUR |
-| **Dreem 3 (bandeau)** | EEG, SpO2, cardio, mouvement | Bandeau de sommeil medical-grade, stimulation sonore | Cher, usage nuit uniquement | 400-500 EUR |
-| **Empatica EmbracePlus** | EDA (electrodermal), cardio, temperature, accelerometre | Bracelet medical certifie, detection crises epilepsie | Prescription, medical uniquement | Professionnel |
-| **BioStamp nPoint** | EMG, ECG, accelerometre, gyroscope | Patch flexible multi-position, recherche medicale | Professionnel, pas grand public | Professionnel |
-
-#### TIER 7 - Dispositifs Auditifs & Lunettes Connectees
-
-| Appareil | Capteurs | Points Forts | Points Faibles | Prix |
-|----------|----------|--------------|----------------|------|
-| **AirPods Pro 2 (Apple)** | Audiogramme, detection auditive, capteur mouvement | Test auditif integre, mode aide auditive, detection chute | Uniquement audio | 250-280 EUR |
-| **Jabra Enhance Plus** | Audiogramme, aide auditive | Ecouteurs + aide auditive certifiee medicale | Niche auditive | 800 EUR |
-| **Ray-Ban Meta Smart Glasses** | Camera, micro, haut-parleur | Capture visuelle, assistant vocal, discret | Pas de capteurs sante (pour l'instant) | 300-400 EUR |
-| **Fauna Audio Glasses** | Micro, haut-parleur | Lunettes audio, discret | Pas de capteurs sante | 200-250 EUR |
+> Marche mondial : ~103 milliards USD (2025), projete a 505 milliards USD d'ici 2034.
+> 35% des adultes americains utilisent deja un wearable sante.
+> Les bagues connectees atteignent 12% de penetration aux US (~26 millions d'unites).
 
 ---
 
-#### Resume : Comparatif par Forme de Wearable
+### 3.1 BRACELETS CONNECTES (forme la plus portee au quotidien)
 
-```
-FORME          | CONFORT  | DISCRETION | CAPTEURS | AUTONOMIE | PRIX
----------------|----------|------------|----------|-----------|----------
-Bracelet       | *****    | ****       | ***      | ****      | 35-160 EUR
-Bague          | *****    | *****      | ***      | ****      | 250-450 EUR
-Montre         | ****     | ***        | *****    | **        | 300-900 EUR
-Patch          | ***      | ****       | ****     | **(jetable)| 50-100/unite
-Vetement       | ****     | *****      | ****     | ***       | 200-500 EUR
-Pendentif/Clip | *****    | *****      | **       | ****      | 100-250 EUR
-Bandeau        | **       | *          | *****    | ***       | 250-500 EUR
-Ecouteurs      | ****     | ****       | **       | ***       | 250-800 EUR
-```
+#### A. Bracelets Premium (capteurs avances)
 
-#### TIER 3 - Dispositifs Medicaux Connectes Specialises
+| Appareil | Prix | Capteurs | ECG | SpO2 | GPS | Autonomie | Poids | Abonnement |
+|----------|------|----------|-----|------|-----|-----------|-------|------------|
+| **Fitbit Charge 6** | 99-160 EUR | Cardio, ECG, EDA (stress), SpO2, temperature | OUI | OUI | OUI (integre) | 7 jours | 15g | Optionnel (Premium 9.99 EUR/mois) |
+| **Garmin Vivosmart 5** | 130-150 EUR | Cardio, SpO2, Body Battery, stress, respi | Non | OUI | Non (telephone) | 4-7 jours | 25g | AUCUN (Garmin Connect gratuit) |
 
-| Appareil | Mesure | Usage | Integration |
-|----------|--------|-------|-------------|
-| **Withings BPM Connect** | Tension arterielle | Hypertension, suivi quotidien | Apple Health, Health Connect |
-| **Withings Body+ / Body Scan** | Poids, IMC, composition corporelle | Suivi ponderal, sarcopenie | Apple Health, Health Connect |
-| **Abbott FreeStyle Libre 3** | Glycemie en continu (CGM) | Diabete type 1/2 | LibreLink API |
-| **Dexcom G7** | Glycemie en continu (CGM) | Diabete, prediabete | Apple Health, Health Connect |
-| **Withings Thermo** | Temperature temporale | Fievre, suivi cycle | Apple Health |
-| **iHealth Air** | SpO2 + cardio (oxymetre doigt) | BPCO, apnee du sommeil | Bluetooth -> app |
-| **AliveCor KardiaMobile 6L** | ECG 6 derivations | Arythmies, fibrillation auriculaire | Apple Health, PDF export |
-| **Omron HeartGuide** | Tension arterielle (montre) | Hypertension, usage discret | Omron Connect API |
-| **Nonin 3230** | SpO2 medical-grade | Suivi respiratoire precis | Bluetooth |
-| **Biobeat patch** | ECG continu, tension, SpO2, respi | Monitoring post-hospitalisation | API cloud |
+**Fitbit Charge 6** : Le seul bracelet au monde avec ECG + SpO2 + GPS integre. Capteur cardiaque 60% plus precis en exercice que le Charge 5. Google Maps et Wallet integres. Un Charge 7 avec coaching IA (Gemini) est attendu en 2026.
+
+**Garmin Vivosmart 5** : Ecosysteme Garmin complet et gratuit (Body Battery, Training Readiness). Simple, fiable, pas d'abonnement. Ecran gris OLED vieillissant.
+
+#### B. Bracelets Milieu de Gamme (excellent rapport qualite/prix)
+
+| Appareil | Prix | Capteurs | Specificite | Autonomie | Poids | Abonnement |
+|----------|------|----------|-------------|-----------|-------|------------|
+| **Huawei Band 10** | 44-49 EUR | Cardio, SpO2, HRV, temperature, detection AFib | Detection arythmie + HRV a ce prix = imbattable | 8-14 jours | 14g | AUCUN |
+| **Honor Band 10** | 34-65 EUR | Cardio, SpO2, detection AFib, apnee du sommeil | NFC (paiement sans contact) + IA sante cardiaque | 14 jours | 14g | AUCUN |
+| **Samsung Galaxy Fit 3** | 50-60 EUR | Cardio, SpO2, HRV, barometre, gyroscope | Plus grand ecran (1.6" AMOLED), detection de chute | 13 jours | 18.5g | AUCUN |
+
+**Huawei Band 10** : MEILLEUR RAPPORT CAPTEURS/PRIX du marche. Detection AFib, HRV, assistant emotionnel, charge rapide (5 min = 2 jours) pour seulement ~45 EUR. Sorti fevrier 2025.
+
+**Honor Band 10** : Paiement NFC dans un bracelet a petit prix. IA sante cardiaque (AFib + battements prematures + risque apnee du sommeil). Sorti avril 2025.
+
+**Samsung Galaxy Fit 3** : Detection de chutes rare a ce prix. Grand ecran 1.6". Limite : Android uniquement.
+
+#### C. Bracelets Budget (moins de 50 EUR)
+
+| Appareil | Prix | Capteurs | Specificite | Autonomie | Poids | Abonnement |
+|----------|------|----------|-------------|-----------|-------|------------|
+| **Xiaomi Smart Band 10** | 40-50 EUR | Cardio, SpO2, stress, boussole, 9 axes | Plus grand ecran du segment (1.72"), 1500 nits | 21 jours | ~16g | AUCUN |
+| **Xiaomi Smart Band 9** | 25-35 EUR | Cardio, SpO2, accelerometre, gyroscope | Le meilleur rapport prix absolu du marche | 21 jours | 15.8g | AUCUN |
+| **Amazfit Band 7** | 40-50 EUR | Cardio, SpO2, stress | Grand ecran, 120+ modes sport, Zepp OS | 18 jours | ~28g | AUCUN |
+| **Honor Band 7** | 35-45 EUR | Cardio, SpO2 | Leger, simple, abordable | 14 jours | ~14g | AUCUN |
+
+**Xiaomi Smart Band 10** (sorti juin 2025) : Ecran le plus lumineux et le plus grand des bracelets budget. Capteur 9 axes pour natation precise. Diffusion cardio vers appareils externes.
+
+**Xiaomi Smart Band 9** : Imbattable a ~30 EUR. 21 jours de batterie. Le point d'entree parfait.
+
+#### D. Bracelets Sans Ecran (Recovery & Performance)
+
+| Appareil | Prix | Capteurs | Specificite | Autonomie | Poids | Abonnement |
+|----------|------|----------|-------------|-----------|-------|------------|
+| **WHOOP 5.0** | 199-239 EUR/an | Cardio (26 lect/sec), SpO2, HRV, temp, stress | Meilleure analyse recovery/strain du marche, Healthspan | 14 jours | ~20g | OBLIGATOIRE |
+| **WHOOP MG** | 359 EUR/an | Tout WHOOP 5.0 + ECG FDA + tension arterielle (beta) | SEUL bracelet sans ecran avec ECG + tension | 14 jours | ~20g | OBLIGATOIRE |
+| **Amazfit Helio Strap** | 99 EUR (achat unique) | Cardio (continu), SpO2, stress, respi, VO2max | Alternative WHOOP SANS abonnement, compatible 22mm | 10 jours | 20g | AUCUN |
+| **Hume Band** | 199-399 EUR | Cardio, SpO2, HRV, temperature | Seul wearable axe longevite / age biologique | 5-7 jours | 8.6g | Optionnel (8.99 EUR/mois) |
+| **Luna Band** (CES 2026) | A venir | Capteurs research-grade, 6 axes | Guidage vocal en temps reel, micro-recuperation | A venir | TBD | AUCUN |
+| **Garmin CIRQA** (annonce 2026) | A venir | ECG (rumeur), HRV, cardio, temperature | Concurrent direct WHOOP, donnees de base gratuites | TBD | TBD | Partiel (IA payante) |
+
+**WHOOP MG** : Revolution 2025. ECG certifie FDA + estimation tension arterielle depuis un bracelet sans ecran. Le plus medical des bracelets.
+
+**Amazfit Helio Strap** : Le "WHOOP killer" a 99 EUR sans abonnement. Compatible avec n'importe quel bracelet 22mm. Strava, Apple Health, Google Fit.
+
+**Garmin CIRQA** (a venir mi-2026) : Le plus attendu. Garmin entre sur le marche des bandes sans ecran avec son ecosysteme gratuit (Body Battery, Training Readiness). Pourrait bouleverser le marche.
 
 ---
 
-### 3.2 Recommandation par Profil Utilisateur
+### 3.2 BAGUES CONNECTEES
+
+#### A. Leaders du Marche
+
+| Appareil | Prix | Capteurs | Specificite | Autonomie | Abonnement |
+|----------|------|----------|-------------|-----------|------------|
+| **Oura Ring 4** | 349 EUR + 5.99 EUR/mois | Cardio, HRV, SpO2, temperature, 3D accelero | Meilleur suivi sommeil du marche, Smart Sensing multi-chemin | 7 jours | OUI (obligatoire) |
+| **Samsung Galaxy Ring** | 399-450 EUR | Cardio, HRV, temperature, accelero | Galaxy AI "Energy Score", detection ronflement | 7 jours | AUCUN |
+
+**Oura Ring 4** : Reference absolue du sommeil. Valorise a 11 milliards USD. Integration Dexcom Stelo (glycemie). Nouveau modele IA sante feminine (mars 2026).
+
+**Samsung Galaxy Ring** : Pas d'abonnement, Galaxy AI integre. Galaxy Ring 2 attendu fin 2026.
+
+#### B. Alternatives Solides
+
+| Appareil | Prix | Capteurs | Specificite | Autonomie | Abonnement |
+|----------|------|----------|-------------|-----------|------------|
+| **Circular Ring 2** | 239-549 EUR | ECG (!), Cardio, HRV, SpO2, temperature | PREMIERE bague avec ECG FDA, detection AFib | 8 jours | AUCUN |
+| **Ultrahuman Ring Air** | 350 EUR | Cardio, HRV, SpO2, temperature | "Fenetre stimulant" (timing cafe optimal), pas d'abo | 6 jours | AUCUN |
+| **RingConn Gen 2** | 199-299 EUR | Cardio, SpO2, HRV, temperature | Meilleure autonomie (12 jours !), pas d'abonnement | 12 jours | AUCUN |
+| **Evie Ring** | 269 EUR | Cardio, SpO2, temperature | Concue pour les femmes, suivi cycle, HSA/FSA eligible | 4 jours | AUCUN |
+
+**Circular Ring 2** (marque FRANCAISE) : Premiere bague avec ECG au monde ! Detection AFib certifiee. Livraison prevue ete 2025.
+
+**RingConn Gen 2** : 12 jours d'autonomie = record absolu. RingConn Gen 3 annoncee au CES 2026 avec mesure de tension arterielle.
+
+#### C. Nouveautes 2026
+
+| Appareil | Prix estime | Specificite | Statut |
+|----------|------------|-------------|--------|
+| **RingConn Gen 3** (CES 2026) | ~300 EUR | Tension arterielle, alertes vibration, 10 tailles | Ete 2026 |
+| **Aivela Ring Pro** (CES 2026) | 299 EUR | 2.7g ultra-leger, 8 gestes tactiles + 6 aeriens, coaching vocal IA | Pre-commande |
+| **Omni Health Ring Pro** (CES 2026) | TBD | IA longevite (age biologique), resilience metabolique | Pre-commande Q1 2026 |
+| **Dreame AI Smart Rings** (CES 2026) | TBD | Modeles IA sante embarques sur l'appareil | Annonce |
+| **Movano Evie Ring** | 270-300 EUR | Suivi cycle precis, oxymetre FDA en cours | Disponibilite limitee |
+
+---
+
+### 3.3 PATCHS & CAPTEURS CORPORELS
+
+#### A. Glycemie en Continu (CGM) - Revolution 2025-2026
+
+| Appareil | Type | Duree | Ordonnance ? | Prix | Specificite |
+|----------|------|-------|-------------|------|-------------|
+| **Abbott FreeStyle Libre 3 Plus** | Patch bras | 14 jours | Oui | ~50 EUR/capteur | Lecture chaque minute via Bluetooth |
+| **Dexcom G7 15-Day** | Patch bras | 15 jours (FDA avril 2025) | Oui | ~70 EUR/capteur | Plus longue duree approuvee FDA, MARD 8.0% |
+| **Dexcom Stelo** | Patch bras (OTC) | 14 jours | NON (sans ordonnance !) | ~100 USD/mois | 1er CGM en vente libre ! Compatible Oura Ring |
+| **Abbott Lingo** | Patch bras (OTC) | 14 jours | NON | Dispo sur Amazon | Plus petit capteur du monde, Bluetooth 33ft |
+| **Abbott Libre Rio** | Patch bras (OTC) | 14 jours | NON | TBD | Pour diabete type 2 non-insuline |
+| **Ascensia Eversense 365** | Implant sous-cutane | 365 JOURS | Oui | Sur prescription | 1er CGM implantable 1 an ! |
+| **Glucotrack** | Implant | 3 ANS | Oui | Sur prescription | Mesure directe dans le sang |
+| **Levels CGM** (programme) | Dexcom/Libre + app | 14 jours | Non (US) | ~200 USD/mois | Coaching IA nutrition base sur glycemie |
+
+**Tendance majeure 2025-2026** : Les CGM deviennent accessibles SANS ordonnance pour le grand public (wellness/prevention).
+
+#### B. Patchs Cardiaques & Multi-Capteurs
+
+| Appareil | Capteurs | Usage | Disponibilite |
+|----------|----------|-------|---------------|
+| **iRhythm Zio AT** | ECG continu (patch thoracique) | Monitoring cardiaque longue duree, FDA-cleared | Professionnel |
+| **BioBeat Chest Patch** | Tension arterielle 24/7, ECG, SpO2 | Monitoring post-hospitalisation | Professionnel |
+| **Vivalink ECG Patches** | ECG continu, temperature, mouvement | Recherche clinique, adhesif ameliore (fev 2025) | Professionnel |
+| **BioStamp nPoint** | EMG, ECG, accelero, gyroscope | Patch flexible multi-position | Recherche |
+| **Lief Smart Patch** | ECG, HRV, respiration | Biofeedback stress en temps reel | 200-250 EUR |
+| **Biolinq Shine** | Glycemie + activite + sommeil (tout-en-un) | Patch unique multi-fonction | A venir |
+
+#### C. Patchs Innovants en Recherche (2025-2026)
+
+| Innovation | Laboratoire | Fonction |
+|------------|-------------|----------|
+| **Patch detection cancer peau** | Wake Forest University | Detection precoce, sans batterie, sans puce, jetable |
+| **Patch 3D sans adhesif** | University of Arizona | Detecte deshydratation, stress metabolique via vapeur cutanee |
+| **Bioelectronique vivante** | University of Chicago | Cellules vivantes + electronique pour cicatrisation |
+| **Monitoring hormonal continu** | Level Zero Health (6.6M USD funding) | 1er moniteur hormonal continu au monde |
+
+---
+
+### 3.4 VETEMENTS & TEXTILES CONNECTES
+
+| Appareil | Type | Capteurs | Usage | Prix |
+|----------|------|----------|-------|------|
+| **Hexoskin Smart Shirt** | T-shirt | ECG, respi, accelero | Qualite medicale, 275+ publications scientifiques | 400-500 EUR |
+| **Sensoria Smart Socks** | Chaussettes | Pression plantaire, accelero | Prevention ulceres diabetiques, analyse marche | 200-300 EUR |
+| **Owlet Smart Sock** | Chaussette bebe | SpO2, cardio | Surveillance nuit bebe, alertes parents | 300-400 EUR |
+| **Myontec MBody** | Short | EMG (activite musculaire) | Reeducation, sport pro | 500+ EUR |
+| **Athos Smart Clothing** | T-shirt/short | EMG, cardio | Electromyographie temps reel | 400+ EUR |
+| **Skiin Smart Underwear** | Sous-vetements | ECG, temperature, mouvement | Invisible, confortable | 300+ EUR |
+
+**Recherche emergente** :
+- **Cornell SeamFit** : Fils conducteurs cousus dans les coutures, IA detecte mouvements + compte repetitions. Lavable.
+- **King's College London** : Vetements amples surpassent les capteurs serres (+40% precision, -80% donnees necessaires). Detecte tremblements Parkinson.
+- **SonoTextiles** (Nature Electronics) : Textile acoustique piezoelectrique pour gestes et respiration.
+
+---
+
+### 3.5 AUTRES FORMES : CLIPS, PENDENTIFS, BANDEAUX, ECOUTEURS, SEMELLES
+
+#### Bandeaux & Dispositifs Cerebraux
+
+| Appareil | Capteurs | Usage | Prix |
+|----------|----------|-------|------|
+| **Muse S Gen 2** | EEG, cardio, accelero, respi | Meditation, neurofeedback, sommeil | 250-350 EUR |
+| **Dreem 3** | EEG, SpO2, cardio, mouvement | Sommeil medical-grade, stimulation sonore | 400-500 EUR |
+| **MemoMind LumiSleep** (Xgimi) | EEG | Audio adaptatif synchronise aux ondes cerebrales | Nouveau 2025 |
+
+#### Pendentifs & Clips
+
+| Appareil | Capteurs | Usage | Prix |
+|----------|----------|-------|------|
+| **Bellabeat Leaf** | Mouvement, sommeil, stress, cycle | Bijou sante feminin (pendentif/clip/bracelet) | 100-150 EUR |
+| **Medical Guardian** | GPS, detection chute, SOS | Pendentif alerte senior | 30-50 EUR/mois |
+| **CarePredict Tempo** | Accelero, proximite | Detection patterns comportement seniors (EHPAD) | B2B |
+| **Nirva Necklace** | Micro, biosenseurs | Analyse conversations + reactions physiologiques + humeur IA | Nouveau 2025 |
+| **Spire Health Tag** | Respiration, mouvement | Micro-clip sur vetements | 100-150 EUR |
+| **Omni Health Pin** (CES 2026) | IA nutrition | Tracker nutrition zero-contact, clip-on | A venir 2026 |
+| **Peri by IdentifyHer** | Multi-capteurs (torse) | Suivi symptomes perimenopause | Nouveau 2025 |
+
+#### Ecouteurs & Lunettes Connectees
+
+| Appareil | Capteurs | Usage | Prix |
+|----------|----------|-------|------|
+| **AirPods Pro 2** | Audiogramme, mouvement, aide auditive | Test auditif integre, mode aide auditive certifie | 250-280 EUR |
+| **Jabra Enhance Plus** | Aide auditive certifiee | Ecouteurs + aide auditive medicale | 800 EUR |
+
+#### Semelles Intelligentes
+
+| Appareil | Capteurs | Usage | Prix |
+|----------|----------|-------|------|
+| **Ohio State Smart Insole** | 22 capteurs pression, solaire | 8 mouvements detectes a 100%, alerte Parkinson/fasciite | Recherche (3-5 ans) |
+| **Georgia Tech Smart Insert** | 170+ capteurs flexibles | Stroke, Parkinson, chutes seniors | < 100 USD (objectif) |
+| **Boogio Smart Insole** | Equilibre, puissance, marche | Donnees temps reel, charge sans fil | Commercial |
+
+#### Dispositifs Therapeutiques
+
+| Appareil | Type | Usage | Prix |
+|----------|------|-------|------|
+| **UREVO AI Recovery Boots** (CES 2026) | Bottes compression | Recuperation jambes assistee par IA | 780 EUR |
+| **Empatica EmbracePlus** | Bracelet medical | Detection crises epilepsie, certifie FDA | Sur prescription |
+| **Speediance Strap** | Bande sans ecran | Temperature corporelle interne, readiness | Nouveau 2025 |
+
+---
+
+### 3.6 CLASSEMENT GLOBAL - QUEL OBJET CHOISIR ?
+
+```
+=====================================================================
+CLASSEMENT PAR FORME DE WEARABLE
+=====================================================================
+
+FORME           | CONFORT | DISCRETION | CAPTEURS | AUTONOMIE | PRIX
+----------------|---------|------------|----------|-----------|----------
+Bracelet        | *****   | ****       | ***      | *****     | 25-360 EUR/an
+Bague           | *****   | *****      | ***      | ****      | 200-550 EUR
+Montre          | ****    | ***        | *****    | **        | 300-900 EUR
+Patch CGM       | ***     | ****       | ****     | ** (14j)  | 50-100 EUR/unite
+Vetement        | ****    | *****      | ****     | ***       | 200-500 EUR
+Pendentif/Clip  | *****   | *****      | **       | ****      | 100-250 EUR
+Bandeau         | **      | *          | *****    | ***       | 250-500 EUR
+Semelle         | *****   | *****      | ***      | ****      | 100-300 EUR
+Ecouteurs       | ****    | ****       | **       | ***       | 250-800 EUR
+
+=====================================================================
+TOP 5 - MEILLEUR BRACELET 2025-2026
+=====================================================================
+
+1. WHOOP MG ............... ECG FDA + tension + recovery (si budget abo OK)
+2. Fitbit Charge 6 ........ ECG + SpO2 + GPS dans un bracelet classique
+3. Huawei Band 10 ......... Detection AFib + HRV pour seulement 45 EUR (!)
+4. Amazfit Helio Strap .... Alternative WHOOP sans abonnement a 99 EUR
+5. Xiaomi Smart Band 10 ... Meilleur budget, ecran geant, 21 jours
+
+=====================================================================
+TOP 5 - MEILLEURE BAGUE 2025-2026
+=====================================================================
+
+1. Oura Ring 4 ............ Reference sommeil, ecosysteme le plus riche
+2. Circular Ring 2 ........ 1ere bague ECG au monde (marque francaise !)
+3. Samsung Galaxy Ring ..... Pas d'abonnement, Galaxy AI integre
+4. RingConn Gen 2 ......... 12 jours d'autonomie, pas d'abonnement, 199 EUR
+5. Evie Ring .............. Meilleure bague sante feminine
+
+=====================================================================
+TOP PICKS PAR CAS D'USAGE MEDICAL
+=====================================================================
+
+Diabete ........... Dexcom Stelo (OTC) + Oura Ring 4
+Cardiaque ......... WHOOP MG (ECG+tension) + AliveCor KardiaMobile 6L
+Senior ............ Huawei Band 10 (simple) + Medical Guardian (SOS)
+Sommeil ........... Oura Ring 4 (reference) ou Dreem 3 (medical-grade)
+Sante mentale ..... Muse S Gen 2 (EEG) + Lief Patch (HRV biofeedback)
+Sante feminine .... Evie Ring + Peri by IdentifyHer (perimenopause)
+Sport / Rehab ..... WHOOP 5.0 ou Amazfit Helio + Hexoskin (ECG textile)
+Epilepsie ......... Empatica EmbracePlus (FDA)
+Parkinson ......... Georgia Tech Smart Insert (recherche)
+Pediatrie ......... Owlet Smart Sock (bebe)
+Budget absolu ..... Xiaomi Smart Band 9 a 30 EUR
+```
+
+---
+
+### 3.7 Recommandation par Profil Utilisateur
 
 ```
 PATIENT GENERAL (usage quotidien) :
-  Recommande : Apple Watch Series 10 (iOS) ou Samsung Galaxy Watch 7 (Android)
-  + Withings Body+ (balance)
-  Budget : 400-600 EUR
+  Option A : Huawei Band 10 (45 EUR) - excellent rapport qualite/prix
+  Option B : Fitbit Charge 6 (100-160 EUR) - le plus complet (ECG+GPS)
+  + Withings Body+ (balance connectee)
+  Budget : 50-250 EUR
 
 SENIOR / PERSONNE AGEE :
-  Recommande : Withings ScanWatch 2 (design classique, autonomie 30j, simple)
+  Recommande : Huawei Band 10 (simple, grand ecran, leger, 45 EUR)
+  + Medical Guardian pendentif SOS
   + Withings BPM Connect (tension)
-  + Withings Thermo (temperature)
-  Budget : 500-700 EUR
+  Budget : 150-300 EUR
 
 PATIENT DIABETIQUE :
-  Recommande : Apple Watch + Abbott FreeStyle Libre 3
-  Combo ideal pour glycemie continue + alertes
-  Budget : 500 EUR + capteurs mensuels
+  Recommande : Dexcom Stelo (sans ordonnance) + Oura Ring 4
+  OU Abbott Lingo (dispo Amazon) + bracelet au choix
+  Budget : 200-450 EUR + capteurs mensuels
 
 PATIENT CARDIAQUE :
-  Recommande : Apple Watch (ECG) + AliveCor KardiaMobile 6L (ECG avance)
-  + Withings BPM Connect (tension)
-  Budget : 600-800 EUR
+  Recommande : WHOOP MG (ECG FDA + tension)
+  + AliveCor KardiaMobile 6L (ECG 6 derivations)
+  Budget : 360 EUR/an + 200 EUR
 
 SPORTIF / REHAB :
-  Recommande : Garmin Venu 3 (autonomie) ou Whoop 4.0 (recuperation)
-  + Oura Ring (sommeil)
-  Budget : 500-700 EUR
+  Option A : WHOOP 5.0 (si abonnement OK)
+  Option B : Amazfit Helio Strap (99 EUR, sans abonnement)
+  + Oura Ring 4 (sommeil/recuperation)
+  Budget : 100-600 EUR
 
-SUIVI SOMMEIL / BIEN-ETRE :
-  Recommande : Oura Ring Gen 4 (le meilleur pour le sommeil)
-  Budget : 350-400 EUR + abonnement
+SANTE FEMININE :
+  Recommande : Evie Ring (269 EUR, cycle precis)
+  OU Oura Ring 4 (modele IA feminin mars 2026)
+  + Peri by IdentifyHer (perimenopause)
+  Budget : 270-400 EUR
 
 BUDGET MINIMAL :
-  Recommande : Xiaomi Smart Band 9 (cardio, SpO2, sommeil)
-  Budget : 35-50 EUR (capteurs moins precis mais suffisant pour debuter)
+  Recommande : Xiaomi Smart Band 9 (30 EUR) ou Band 10 (50 EUR)
+  Budget : 30-50 EUR
 ```
 
 ---
@@ -436,21 +582,67 @@ Bases de donnees :
 
 ---
 
-### 3.5 APIs & SDKs d'Integration
+### 3.8 APIs & SDKs d'Integration (Actualise 2025-2026)
 
-| Plateforme | API/SDK | Donnees Accessibles |
-|------------|---------|---------------------|
-| **Apple HealthKit** | HealthKit Framework (Swift) | Toutes donnees sante Apple Watch + apps tierces |
-| **Google Health Connect** | Health Connect API (Kotlin) | Donnees sante Android + Wear OS |
-| **Samsung Health** | Samsung Health SDK | Donnees Galaxy Watch, BIA |
-| **Fitbit / Google** | Fitbit Web API (REST) | Cardio, sommeil, activite |
-| **Garmin** | Garmin Connect API + Health SDK | Activite, Body Battery, HRV |
-| **Withings** | Withings API (REST, OAuth2) | Poids, tension, ECG, temperature |
-| **Oura** | Oura API v2 (REST) | Sommeil, readiness, activite |
-| **Whoop** | Whoop API (REST) | Recovery, strain, sommeil |
-| **Dexcom** | Dexcom API (REST) | Glycemie en continu |
-| **Abbott Libre** | LibreLinkUp (non officiel) / LibreView | Glycemie en continu |
-| **FHIR** | HL7 FHIR R4 | Standard interoperable sante (tous dispositifs) |
+#### A. APIs Natives des Plateformes
+
+| Plateforme | API/SDK | Modele | FHIR | Maturite |
+|------------|---------|--------|------|----------|
+| **Apple HealthKit** | HealthKit Framework (Swift) | On-device, app native requise | Via CDA/SMART on FHIR | Excellente (depuis 2014). Nouveau : Medications API (WWDC 2025) |
+| **Google Health Connect** | Health Connect API (Kotlin) | On-device, Android SDK | OUI natif (dossiers medicaux FHIR) | Remplace Google Fit (arrete juin 2025). Standard Android. |
+| **Samsung Health** | Samsung Health Data SDK | On-device, approbation partenaire requise | Non | Nouveau SDK (ancien deprecie oct 2025). Acces capteurs exclusifs Galaxy Watch |
+
+#### B. APIs Cloud des Fabricants
+
+| Plateforme | API/SDK | Donnees Accessibles | Modele |
+|------------|---------|---------------------|--------|
+| **Fitbit** | Fitbit Web API (REST, OAuth 2.0) | Cardio, sommeil, activite, SpO2 | Cloud |
+| **Garmin** | Garmin Health API (webhooks, OAuth) | VO2 max, stress, sommeil, Body Battery | Cloud |
+| **Oura** | Oura Cloud API v2 (REST, OAuth 2.0) | Sommeil, readiness, HRV, temperature | Cloud |
+| **Whoop** | Whoop API (REST) | Recovery, strain, sommeil, HRV | Cloud |
+| **Withings** | Withings API (REST, OAuth2) | Poids, tension, ECG, temperature | Cloud |
+| **Polar** | Polar AccessLink API | Cardio, training load, sommeil | Cloud |
+| **Dexcom** | Dexcom API (REST) | Glycemie en continu | Cloud |
+| **Abbott Libre** | LibreLinkUp / LibreView | Glycemie en continu | Cloud (non officiel) |
+| **Huawei** | Huawei Health Kit | Cardio, sommeil, pas, SpO2 | On-device |
+
+#### C. APIs Unifiees / Aggregateurs (RECOMMANDE pour le MVP)
+
+| Service | Appareils Supportes | Conformite | Prix | Avantage |
+|---------|---------------------|------------|------|----------|
+| **Terra API** | Fitbit, Garmin, Apple, Google, Polar, Oura, Whoop | HIPAA/RGPD/SOC 2 | Abonnement | Best fitness |
+| **Spike Health 360** | 500+ wearables + IoT, nutrition IA, labos | HIPAA/RGPD | Abonnement | MCP server pour LLM |
+| **Vitalera** | 500+ appareils dont medical-grade | HIPAA/RGPD/ISO 27001 | Abonnement | Auto-generation code |
+| **Open Wearables** (open-source) | Apple Health, Samsung, Garmin, Polar, Whoop | Libre | GRATUIT (self-hosted) | Oura/Fitbit prevu Q1 2026 |
+| **Validic** | Large gamme | HIPAA | Abonnement | Fort en clinique |
+| **ROOK** | Majeurs | HIPAA | Abonnement | Analytics temps reel |
+| **Thryve** | Majeurs + HealthKit | RGPD | Abonnement | Couche unique |
+
+**RECOMMANDATION pour notre MVP** :
+- Phase 1 : **Open Wearables** (gratuit, open-source) pour demarrer vite
+- Phase 2 : **Terra API** ou **Spike Health 360** pour couvrir 500+ appareils
+- Production : **Vitalera** (medical-grade, FHIR, certifie)
+
+#### D. Couts d'Integration Estimes
+
+| Scope | Cout | Delai |
+|-------|------|-------|
+| 1 plateforme (HealthKit OU Health Connect) | 15-30K EUR | 4-8 semaines |
+| Multi-device (6+ wearables, custom) | 50-150K EUR | 3-6 mois |
+| Enterprise FHIR + HIPAA + FDA | 200-500K+ EUR | 6-12 mois |
+| API unifiee (Terra, Spike, Vitalera) | Abonnement mensuel | Jours a semaines |
+| Open Wearables (open-source) | Gratuit (self-hosted) | Jours |
+
+#### E. Interoperabilite FHIR/HL7
+
+- **FHIR R4/R5** : Standard dominant pour l'echange de donnees de sante
+- **Health Connect** : Support natif des dossiers medicaux FHIR
+- **Apple HealthKit** : Compatible SMART on FHIR via CDA clinical records
+- **Garmin** : Integration FHIR validee (etude Frontiers in Digital Health 2025)
+- **Middleware requis** : Aucun wearable n'exporte du FHIR brut nativement
+- **FHIR R6 (prevu 2026)** : Support renforce IA, monitoring a distance, echange transfrontalier
+- Les donnees wearables mappent vers des **FHIR Observation resources** (cardio, tension, SpO2, temp)
+- Les scores proprietaires (sommeil, readiness) n'ont PAS d'equivalent FHIR
 
 ---
 
