@@ -881,7 +881,151 @@ Message Broker:    RabbitMQ / Kafka
 
 ---
 
-## 10. Stack Recommandee pour Demarrer
+## 10. Analyse Concurrentielle (Recherche Mars 2026)
+
+> Marche mondial de l'IA en sante : **39.25 milliards USD (2025)**, projete a **504 milliards USD d'ici 2032** (~44% CAGR).
+> En H1 2025, les startups IA sante ont leve **4 milliards USD sur 6.4 milliards** du digital health total.
+> L'adoption de l'IA en sante est **2.2x plus rapide** que dans le reste de l'economie.
+
+### 10.1 Concurrents Directs - Symptom Checkers & Triage IA
+
+| Concurrent | Pays | Financement | Modele | Forces | Faiblesses |
+|------------|------|-------------|--------|--------|------------|
+| **Ada Health** | Allemagne | 189.5M USD | B2B + app gratuite | #1 precision (70% vs 82% medecins), 600+ conditions, 17 langues, 97% securite | Pas de telemedecine, purement pre-diagnostic |
+| **Infermedica / Symptomate** | Pologne | Non divulgue | B2B white-label + app | Certifie MDR Class IIb (2025), 600 conditions, IA agentique vocale prevue 2026 | Moins connu du grand public |
+| **Buoy Health** | USA | 86.7M USD | B2B (assureurs) | Backed par Cigna, Humana, UnitedHealth | Precision inferieure (80% securite), US uniquement |
+| **Mediktor** | Espagne | Non divulgue | B2B enterprise | Fort en marches hispanophones, multilingue | Plus petit que Ada/K Health |
+| **Isabel Healthcare** | UK | Non divulgue | B2B + consumer | Couvre maladies rares, utilise par cliniciens | Interface datee, approche ancienne |
+
+### 10.2 Concurrents - Chatbots Medicaux IA
+
+| Concurrent | Pays | Financement | Valorisation | Forces | Faiblesses |
+|------------|------|-------------|-------------|--------|------------|
+| **K Health** | USA/Israel | 439M USD | 900M USD | IA entrainee sur donnees Maccabi + Mayo Clinic, prescriptions, partenariat UnitedHealthcare | US uniquement, pas encore rentable |
+| **Hippocratic AI** | USA | 404M USD | **3.5 milliards USD** | 50+ systemes de sante (Cleveland Clinic, NHS), 115M+ interactions, architecture de securite "Polaris" | Non-diagnostique uniquement, pas de consumer app |
+| **ChatGPT Health** (OpenAI) | USA | OpenAI (6.6B+) | N/A | 230M+ requetes sante/semaine, integre Apple Health + MyFitnessPal + Peloton + dossiers medicaux | **EXCLU de l'UE** (reglementation), pas HIPAA, pas de validation clinique |
+| **Docus AI** | Global | Non divulgue | N/A | IA + second avis de vrais specialistes | Petite echelle |
+
+**POINT CLE** : ChatGPT Health est le concurrent le plus menaçant MAIS il est **exclu de l'UE** pour des raisons reglementaires. C'est une fenetre d'opportunite enorme pour un acteur europeen conforme RGPD/HDS.
+
+### 10.3 Concurrents - IA + Wearables Sante
+
+| Concurrent | Pays | Type | Forces | Faiblesses |
+|------------|------|------|--------|------------|
+| **Apple Health+** (prevu 2026) | USA | Coach IA ecosysteme Apple | Donnees longitudinales massives, IA on-device, vie privee | Apple uniquement, pas medical-grade |
+| **Google/Fitbit AI** | USA | IA Gemini + Fitbit | Ecosysteme Android, Gemini AI | En retard sur Apple en donnees sante |
+| **Withings** | **FRANCE** | Devices + analytics IA | Devices medical-grade (FDA/CE), souverainete francaise | IA conversationnelle limitee |
+| **SWORD Health** | Portugal | Physio digitale IA | Cash-flow positif, 200M+ ARR, valorisation 4B USD | Niche MSK, B2B uniquement |
+
+### 10.4 Concurrents - Telemedecine + IA
+
+| Concurrent | Pays | Financement/Valeur | Forces | Faiblesses |
+|------------|------|-------------------|--------|------------|
+| **Doctolib** | **FRANCE** | **6.4 milliards USD** | 300K+ praticiens, assistant IA telephone (500+ appels/mois/GP), 30M+ consultations IA, "Doctolib Parents" (pediatrie IA) prevu 2026 | Axe praticien (pas patient IA), pas de symptom checker |
+| **Alan** | **FRANCE** | **5 milliards EUR** | Assurance sante + assistant IA "Mo", 785M EUR ARR (+53%), remboursement 70% en 1h | Assurance d'abord (pas un outil medical IA pur) |
+| **Teladoc/Livongo** | USA | Cote en bourse (~2B) | Millions de visites/an, gestion maladies chroniques | Valorisation en chute (de 44B a 2B) |
+
+### 10.5 Concurrents - Maladies Chroniques
+
+| Concurrent | Pays | Specialite | Forces | Faiblesses |
+|------------|------|-----------|--------|------------|
+| **Diabeloop** | **FRANCE** | Diabete (insuline automatique) | Algorithme IA closed-loop CE-marque, insuline auto-ajustee | Type 1 uniquement, sur prescription |
+| **Welldoc** | USA | Diabete | FDA-cleared, DTx (Digital Therapeutic) | US uniquement, acces sur prescription |
+| **Noom** | USA | Comportement / poids | 45M+ telechargements, GLP-1 pathways, tier gratuit (2025) | Taux d'abandon eleve, efficacite debattue |
+| **Virta Health** | USA | Diabete type 2 (reversal) | Evidence clinique de reversal du diabete type 2 | Niche, engagement patient requis |
+
+### 10.6 Concurrents - Sante Mentale IA
+
+| Concurrent | Pays | Financement | Forces | Faiblesses |
+|------------|------|-------------|--------|------------|
+| **Woebot Health** | USA | 124M USD | FDA Breakthrough Device, essais cliniques randomises (non-inferiorite vs therapie humaine pour ados) | **App consumer arretee juin 2025**, pivot full B2B |
+| **Wysa** | USA/UK | 30.5M USD | FDA Breakthrough, 90+ pays, 5M+ users, NHS partnership, fusionne avec April Health (2025) | Plus petit financement |
+| **Flourish** | USA | Non divulgue | 1er essai RCT multi-site (Harvard 2025) pour prevention sante mentale | Jeune, petite echelle |
+
+### 10.7 Concurrents - Gestion Medicaments
+
+| Concurrent | Pays | Forces | Faiblesses |
+|------------|------|--------|------------|
+| **Medisafe** | USA | Leader, VIA (Voice Intelligent Agent), MedTech Award 2025, partenariats pharma | Dependent contrats pharma |
+| **EveryDose** | USA | Alertes interactions, Pharmacy500 Innovator 2025 | Petite echelle |
+| **Florence** | Global | Tracker medicaments + symptomes | Fonctions limitees |
+
+### 10.8 Concurrents FRANCAIS (Focus Special)
+
+| Startup | Financement | Ce qu'elle fait | Specificite |
+|---------|-------------|-----------------|-------------|
+| **Doctolib** | Val. 6.4B USD | Plateforme RDV + IA praticien | Dominant en France (300K+ praticiens) |
+| **Alan** | Val. 5B EUR | Assurance sante + assistant IA "Mo" | 785M EUR ARR, croissance 53% |
+| **Synapse Medicine / MedGPT** | Non divulgue | 1er assistant IA medical francais pour pros | LLM "MedGPT" heberge en France, HDS |
+| **Nabla** | 114.7M USD | Copilote IA ambient pour cliniciens (transcription) | Concurrent de Microsoft DAX |
+| **Vocca** | 4.7M EUR | Receptionniste IA vocal pour cabinets medicaux | Objectif 10K praticiens fin 2026 |
+| **BraimIA (Markus-Sante)** | BPI + Google | Assistant IA organisation consultations | Kines, orthophonistes, medecins sport |
+| **Callyope** | Non divulgue | Monitoring patient par analyse vocale | Biomarqueurs vocaux, sante mentale |
+| **Diabeloop** | Non divulgue | IA insuline automatique (closed-loop) | CE-marque, diabete type 1 |
+| **OWKIN** | 304.1M USD | IA medecine de precision / drug discovery | Federated learning, 100% recherche |
+| **Withings** | Francaise | Devices sante connectes medical-grade | ScanWatch, BPM Connect, Body Scan |
+
+### 10.9 Resume : Paysage Concurrentiel
+
+```
+=====================================================================
+CARTE DU MARCHE - OU SE POSITIONNER ?
+=====================================================================
+
+                      MEDICAL-GRADE
+                           |
+    Hippocratic AI         |        Ada Health
+    (agents IA B2B)        |        (symptom checker)
+                           |
+    Diabeloop              |        Infermedica
+    (insuline auto)        |        (triage B2B)
+                           |
+  B2B -------|-------------|-------------|------- B2C
+             |             |             |
+    Doctolib               |        K Health
+    (praticiens)           |        (chat + medecins)
+                           |
+    Alan                   |        Noom
+    (assurance + IA)       |        (comportement)
+                           |
+    SWORD Health           |        ChatGPT Health
+    (physio IA)            |        (chat general)
+                           |
+                      WELLNESS
+                           |
+          NOTRE OPPORTUNITE :
+          Zone B2C + Medical-grade
+          avec wearables + RGPD/HDS
+          = AUCUN concurrent direct
+=====================================================================
+```
+
+### 10.10 Opportunites & Avantages Concurrentiels
+
+**FENETRE D'OPPORTUNITE identifiee :**
+
+1. **ChatGPT Health exclu de l'UE** : Le plus gros concurrent est bloque par la reglementation europeenne. Fenetre temporaire mais significative.
+
+2. **Aucun concurrent ne fait TOUT** :
+   - Ada Health = symptom checker MAIS pas de wearables, pas de teleconsultation
+   - K Health = chat + medecins MAIS US uniquement
+   - Doctolib = dominant en France MAIS axe praticien, pas d'IA patient
+   - Withings = devices medical-grade MAIS pas de chatbot IA
+
+3. **Notre positionnement unique : la plateforme integree**
+   - Chat IA symptomes + triage (comme Ada)
+   - Integration wearables (comme Apple Health+)
+   - Conforme RGPD/HDS (comme Doctolib)
+   - Gestion medicaments (comme Medisafe)
+   - Tout-en-un pour le patient francais/europeen
+
+4. **Reglementation comme rempart** : RGPD + HDS + AI Act europeen = barriere d'entree massive pour les acteurs US (ChatGPT, K Health, etc.)
+
+5. **Consolidation en cours** : Babylon en faillite, Woebot ferme son app consumer, Wysa fusionne -> le marche se consolide. C'est le moment d'entrer avec un produit fort.
+
+---
+
+## 11. Stack Recommandee pour Demarrer
 
 ```
 Pour un MVP rapide et evolutif :
