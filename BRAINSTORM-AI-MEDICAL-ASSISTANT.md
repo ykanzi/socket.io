@@ -190,13 +190,99 @@ reglementaires (l'IA ne remplace jamais un medecin).
 | **Withings ScanWatch 2** | ECG, SpO2, temperature | Design montre classique, autonomie 30 jours, marque francaise medtech | Moins de features smart | 300-400 EUR |
 | **Garmin Venu 3** | SpO2, cardio optique, Body Battery | Autonomie 14 jours, excellent suivi sportif | Pas d'ECG, ecosysteme ferme | 400-500 EUR |
 
-#### TIER 2 - Bagues & Capteurs Discrets
+#### TIER 2 - Bracelets Connectes (Sans Ecran de Montre)
 
 | Appareil | Capteurs | Points Forts | Points Faibles | Prix |
 |----------|----------|--------------|----------------|------|
-| **Oura Ring Gen 3/4** | Temperature, SpO2, cardio, mouvement | Ultra discret, autonomie 7 jours, excellent suivi sommeil | Pas d'ecran, abonnement mensuel | 300-400 EUR + 6 EUR/mois |
-| **Ultrahuman Ring Air** | Temperature, SpO2, cardio, mouvement | Pas d'abonnement, leger (2.4g) | Moins precis que Oura | 350 EUR |
-| **Whoop 4.0 (bracelet)** | Cardio, SpO2, temperature, mouvement | Analyse de recuperation poussee, discret | Abonnement obligatoire, pas d'ecran | 30 EUR/mois |
+| **Xiaomi Smart Band 9** | Cardio optique, SpO2, accelerometre | Ultra abordable, leger (16g), autonomie 21 jours, ecran AMOLED | Capteurs moins precis que montres | 35-50 EUR |
+| **Xiaomi Smart Band 9 Pro** | Cardio, SpO2, GPS integre | GPS autonome, ecran plus grand, autonomie 21j | Pas d'ECG | 55-70 EUR |
+| **Huawei Band 9** | Cardio, SpO2, temperature, accelerometre | TruSleep 4.0 (sommeil precis), autonomie 14j, tres leger (14g) | Ecosysteme Huawei ferme | 50-60 EUR |
+| **Whoop 4.0** | Cardio, SpO2, temperature cutanee, mouvement, EDA (stress) | Analyse recuperation/strain poussee, discret, etanche, sans ecran | Abonnement obligatoire (30 EUR/mois), pas d'ecran | 0 EUR + 30 EUR/mois |
+| **Fitbit Charge 6** | Cardio, SpO2, ECG, EDA (stress), temperature | ECG sur un bracelet (!), Google integre, autonomie 7j | Abonnement Fitbit Premium pour toutes les features | 130-160 EUR |
+| **Fitbit Inspire 3** | Cardio, SpO2, temperature, accelerometre | Tres leger, simple, autonomie 10 jours, bon marche | Pas d'ECG, pas de GPS | 80-100 EUR |
+| **Amazon Halo Band** (si disponible) | Cardio, temperature, micro (analyse tonalite), BIA | Analyse composition corporelle via camera, analyse vocale emotion | Controverse vie privee, service arrete dans certains pays | 70-100 EUR |
+| **Samsung Galaxy Fit 3** | Cardio, SpO2, accelerometre | Leger (18g), autonomie 13 jours, ecran AMOLED, Samsung Health | Pas d'ECG, pas de temperature | 50-60 EUR |
+| **Garmin Vivosmart 5** | Cardio, SpO2, Body Battery, stress | Ecran tactile fin, Garmin Coach, autonomie 7 jours | Design basique | 130-150 EUR |
+| **Honor Band 7** | Cardio, SpO2, accelerometre | Tres leger, autonomie 14 jours, pas cher | Ecosysteme limite | 40-50 EUR |
+| **Amazfit Band 7** | Cardio, SpO2, accelerometre, stress | Grand ecran, 120+ modes sport, Zepp OS, autonomie 18j | Marque moins connue | 40-50 EUR |
+| **FITVII Bracelet Medical** | Cardio, tension arterielle, SpO2, temperature, ECG | Bracelet avec ECG + tension = unique a ce prix | Precision questionnable (non certifie medical) | 40-60 EUR |
+
+#### TIER 3 - Bagues Connectees
+
+| Appareil | Capteurs | Points Forts | Points Faibles | Prix |
+|----------|----------|--------------|----------------|------|
+| **Oura Ring Gen 3/4** | Temperature, SpO2, cardio, mouvement | Ultra discret, autonomie 7 jours, meilleur suivi sommeil du marche | Pas d'ecran, abonnement mensuel | 300-400 EUR + 6 EUR/mois |
+| **Ultrahuman Ring Air** | Temperature, SpO2, cardio, mouvement | Pas d'abonnement, leger (2.4g), design titane | Moins precis que Oura | 350 EUR |
+| **Samsung Galaxy Ring** | Temperature, cardio, SpO2, mouvement, ronflement | Integration Samsung Health, autonomie 7j, pas d'abonnement | Samsung uniquement | 400-450 EUR |
+| **RingConn Gen 2** | Cardio, SpO2, temperature, stress | Pas d'abonnement, autonomie 12 jours, app complete | Marque jeune | 250-300 EUR |
+| **Circular Ring Slim** | Cardio, SpO2, temperature, mouvement | Design fin elegant, alertes vibration, autonomie 8j | Marque francaise mais petite | 280-350 EUR |
+| **Movano Evie Ring** | Cardio, SpO2, temperature, SpO2 continu | Concu specifiquement pour les femmes (suivi cycle precis) | Disponibilite limitee | 270-300 EUR |
+
+#### TIER 4 - Patchs & Capteurs Corporels
+
+| Appareil | Capteurs | Points Forts | Points Faibles | Prix |
+|----------|----------|--------------|----------------|------|
+| **Abbott FreeStyle Libre 3** | Glycemie en continu (CGM) | Patch bras, lecture continue 14j, scan smartphone | Prescription necessaire, usage diabete | ~50 EUR/capteur (14j) |
+| **Dexcom G7** | Glycemie en continu (CGM) | Patch bras, alertes temps reel, tres precis | Prescription, cout eleve | ~70 EUR/capteur (10j) |
+| **Dexcom Stelo** | Glycemie en continu | Premier CGM en vente libre (sans ordonnance aux US) | Pas encore disponible partout | ~100 USD/mois |
+| **Biobeat Patch** | ECG continu, tension, SpO2, frequence respi | Medical-grade, monitoring post-hospitalisation | Usage medical encadre, pas grand public | Sur prescription |
+| **Vivalnk Medical Patch** | ECG, temperature, mouvement, posture | Patch jetable, monitoring continu, certifie medical | Usage hospitalier/clinique | Professionnel |
+| **Byteflies Sensor Dot** | EEG, EMG, ECG, mouvement | Multi-capteurs neurologique + cardiaque, recherche medicale | Tres specialise, pas grand public | Professionnel |
+| **Nutrix Patch** | Glycemie non-invasive (en developpement) | Pas de piqure, patch colle sur la peau | Technologie emergente, pas encore disponible | A venir |
+| **Levels CGM** (programme) | Glycemie via Dexcom/Libre | App + coaching IA nutrition base sur glycemie en temps reel | Abonnement US principalement | ~200 USD/mois |
+
+#### TIER 5 - Vetements & Textiles Connectes
+
+| Appareil | Capteurs | Points Forts | Points Faibles | Prix |
+|----------|----------|--------------|----------------|------|
+| **Hexoskin Smart Shirt** | ECG, frequence respi, accelerometre | T-shirt avec capteurs integres, donnees de qualite medicale | Lavage delicat, module a retirer | 400-500 EUR |
+| **Sensoria Smart Socks** | Pression plantaire, accelerometre | Prevention ulceres diabetiques (pieds), analyse marche | Tres niche | 200-300 EUR |
+| **Nadi X Yoga Pants** | Accelerometre, gyroscope (hanches, genoux, chevilles) | Vibrations haptiques pour corriger les postures yoga | Tres niche, cher | 250 EUR |
+| **Myontec MBody** | EMG (activite musculaire) | Short avec capteurs musculaires, reeducation | Usage sportif pro | 500+ EUR |
+| **Owlet Smart Sock (bebe)** | SpO2, cardio | Chaussette bebe, surveillance SpO2 nuit, alerte parents | Bebe uniquement, controverse FDA | 300-400 EUR |
+| **Skiin Smart Underwear** | ECG, temperature, mouvement, activite | Sous-vetements connectes, invisible, confortable | Disponibilite limitee, cher | 300+ EUR |
+| **Athos Smart Clothing** | EMG (activite musculaire), cardio | T-shirt/short avec electromyographie en temps reel | Prix eleve, sportifs principalement | 400+ EUR |
+
+#### TIER 6 - Clips, Pendentifs & Autres Formes
+
+| Appareil | Capteurs | Points Forts | Points Faibles | Prix |
+|----------|----------|--------------|----------------|------|
+| **Bellabeat Leaf** | Mouvement, sommeil, stress, cycle | Pendentif/clip/bracelet bijou, concu pour les femmes | Pas de cardio optique | 100-150 EUR |
+| **Lief Smart Patch** | ECG, HRV, respiration | Patch thoracique, biofeedback respiration en temps reel | Niche stress/anxiete | 200-250 EUR |
+| **Spire Health Tag** | Respiration, mouvement, sommeil | Clip minuscule qui se fixe aux vetements | Pas de cardio | 100-150 EUR |
+| **CarePredict Tempo** | Accelerometre, capteurs proximite | Pendentif/bracelet senior, detection patterns comportement | B2B (EHPAD), pas grand public | Professionnel |
+| **Medical Guardian** | GPS, detection chute, bouton SOS | Pendentif d'alerte medicale senior, appel secours | Pas de capteurs sante, juste securite | 30-50 EUR/mois |
+| **Theragun Sense** | Accelerometre, capteur pression | Pistolet de massage + capteur guidage IA | Usage recuperation uniquement | 300 EUR |
+| **Muse 2 / Muse S** | EEG (ondes cerebrales), cardio, accelerometre, respi | Bandeau meditation, neurofeedback en temps reel | Niche meditation/stress | 250-350 EUR |
+| **Dreem 3 (bandeau)** | EEG, SpO2, cardio, mouvement | Bandeau de sommeil medical-grade, stimulation sonore | Cher, usage nuit uniquement | 400-500 EUR |
+| **Empatica EmbracePlus** | EDA (electrodermal), cardio, temperature, accelerometre | Bracelet medical certifie, detection crises epilepsie | Prescription, medical uniquement | Professionnel |
+| **BioStamp nPoint** | EMG, ECG, accelerometre, gyroscope | Patch flexible multi-position, recherche medicale | Professionnel, pas grand public | Professionnel |
+
+#### TIER 7 - Dispositifs Auditifs & Lunettes Connectees
+
+| Appareil | Capteurs | Points Forts | Points Faibles | Prix |
+|----------|----------|--------------|----------------|------|
+| **AirPods Pro 2 (Apple)** | Audiogramme, detection auditive, capteur mouvement | Test auditif integre, mode aide auditive, detection chute | Uniquement audio | 250-280 EUR |
+| **Jabra Enhance Plus** | Audiogramme, aide auditive | Ecouteurs + aide auditive certifiee medicale | Niche auditive | 800 EUR |
+| **Ray-Ban Meta Smart Glasses** | Camera, micro, haut-parleur | Capture visuelle, assistant vocal, discret | Pas de capteurs sante (pour l'instant) | 300-400 EUR |
+| **Fauna Audio Glasses** | Micro, haut-parleur | Lunettes audio, discret | Pas de capteurs sante | 200-250 EUR |
+
+---
+
+#### Resume : Comparatif par Forme de Wearable
+
+```
+FORME          | CONFORT  | DISCRETION | CAPTEURS | AUTONOMIE | PRIX
+---------------|----------|------------|----------|-----------|----------
+Bracelet       | *****    | ****       | ***      | ****      | 35-160 EUR
+Bague          | *****    | *****      | ***      | ****      | 250-450 EUR
+Montre         | ****     | ***        | *****    | **        | 300-900 EUR
+Patch          | ***      | ****       | ****     | **(jetable)| 50-100/unite
+Vetement       | ****     | *****      | ****     | ***       | 200-500 EUR
+Pendentif/Clip | *****    | *****      | **       | ****      | 100-250 EUR
+Bandeau        | **       | *          | *****    | ***       | 250-500 EUR
+Ecouteurs      | ****     | ****       | **       | ***       | 250-800 EUR
+```
 
 #### TIER 3 - Dispositifs Medicaux Connectes Specialises
 
