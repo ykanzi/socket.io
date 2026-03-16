@@ -39,7 +39,7 @@ router.post("/", (req: Request, res: Response) => {
   res.status(201).json({ success: true, data: patient });
 });
 
-router.get("/:id", (req: Request, res: Response) => {
+router.get("/:id", (req: Request<{ id: string }>, res: Response) => {
   const patient = patients.get(req.params.id);
   if (!patient) {
     res.status(404).json({ error: "Patient non trouve" });
@@ -48,7 +48,7 @@ router.get("/:id", (req: Request, res: Response) => {
   res.json({ success: true, data: patient });
 });
 
-router.patch("/:id", (req: Request, res: Response) => {
+router.patch("/:id", (req: Request<{ id: string }>, res: Response) => {
   const existing = patients.get(req.params.id);
   if (!existing) {
     res.status(404).json({ error: "Patient non trouve" });

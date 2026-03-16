@@ -10,7 +10,11 @@
     "db:migrate": "prisma migrate dev",
     "db:push": "prisma db push",
     "lint": "eslint src/",
-    "test": "vitest"
+    "test": "vitest",
+    "db:seed": "tsx prisma/seed.ts"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
