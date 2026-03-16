@@ -1,0 +1,464 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// PATIENTS & AUTH
+// ============================================
+
+model Patient {
+  id            String    @id @default(uuid())
+  insNumber     String?   @unique @map("ins_number")
+  firstName     String    @map("first_name")
+  lastName      String    @map("last_name")
+  birthDate     DateTime  @map("birth_date")
+  sex           Sex
+  phone         String?
+  email         String?   @unique
+  address       String?
+  bloodType     String?   @map("blood_type")
+  weightKg      Float?    @map("weight_kg")
+  heightCm      Float?    @map("height_cm")
+  seniorMode    Boolean   @default(false) @map("senior_mode")
+  voiceMode     Boolean   @default(false) @map("voice_mode")
+  fontSizePref  Int       @default(16) @map("font_size_pref")
+  passwordHash  String?   @map("password_hash")
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  allergies          PatientAllergy[]
+  conditions         PatientCondition[]
+  medications        PatientMedication[]
+  conversations      Conversation[]
+  labReports         LabReport[]
+  alerts             Alert[]
+  wearableDevices    WearableDevice[]
+  healthMetrics      HealthMetric[]
+  caregiverLinks     CaregiverLink[]
+
+  @@map("patients")
+}
+
+enum Sex {
+  M
+  F
+  AUTRE
+}
+
+model PatientAllergy {
+  id        String   @id @default(uuid())
+  patientId String   @map("patient_id")
+  allergen  String
+  severity  String?
+  patient   Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
+
+  @@map("patient_allergies")
+}
+
+model PatientCondition {
+  id          String   @id @default(uuid())
+  patientId   String   @map("patient_id")
+  name        String
+  icdCode     String?  @map("icd_code")
+  isAld       Boolean  @default(false) @map("is_ald")
+  diagnosedAt DateTime? @map("diagnosed_at")
+  patient     Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
+
+  @@map("patient_conditions")
+}
+
+// ============================================
+// MEDICAMENTS
+// ============================================
+
+model Medication {
+  id           String  @id @default(uuid())
+  cip13        String? @unique
+  gtin         String? @unique
+  dci          String
+  brandName    String  @map("brand_name")
+  dosage       String?
+  form         String?
+  atcCode      String? @map("atc_code")
+  vidalId      String? @map("vidal_id")
+  bdpmCis      String? @map("bdpm_cis")
+
+  patientMedications PatientMedication[]
+  interactionsA      Interaction[] @relation("interactionMedA")
+  interactionsB      Interaction[] @relation("interactionMedB")
+  prescriptionItems  PrescriptionItem[]
+
+  @@map("medications")
+}
+
+model PatientMedication {
+  id           String    @id @default(uuid())
+  patientId    String    @map("patient_id")
+  medicationId String    @map("medication_id")
+  dosage       String?
+  frequency    String?
+  timeSlots    String[]  @map("time_slots")
+  startDate    DateTime  @map("start_date")
+  endDate      DateTime? @map("end_date")
+  prescriber   String?
+  isActive     Boolean   @default(true) @map("is_active")
+  notes        String?
+
+  patient    Patient    @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  medication Medication @relation(fields: [medicationId], references: [id])
+  reminders  MedReminder[]
+
+  @@index([patientId], map: "idx_patient_medications_active")
+  @@map("patient_medications")
+}
+
+model Interaction {
+  id          String @id @default(uuid())
+  medAId      String @map("med_a_id")
+  medBId      String @map("med_b_id")
+  severity    InteractionSeverity
+  description String
+  source      String @default("VIDAL")
+
+  medA Medication @relation("interactionMedA", fields: [medAId], references: [id])
+  medB Medication @relation("interactionMedB", fields: [medBId], references: [id])
+
+  @@index([medAId, medBId, severity])
+  @@map("interactions")
+}
+
+enum InteractionSeverity {
+  CI   // Contre-indication
+  AD   // Association deconseillee
+  PE   // Precaution d'emploi
+  APC  // A prendre en compte
+}
+
+// ============================================
+// RAPPELS & PRISES
+// ============================================
+
+model MedReminder {
+  id              String   @id @default(uuid())
+  patientMedId    String   @map("patient_med_id")
+  scheduledAt     DateTime @map("scheduled_at")
+  reminderSent    Boolean  @default(false) @map("reminder_sent")
+  status          ReminderStatus @default(PENDING)
+
+  patientMed PatientMedication @relation(fields: [patientMedId], references: [id], onDelete: Cascade)
+  intakes    MedIntake[]
+
+  @@index([scheduledAt], map: "idx_med_reminders_pending")
+  @@map("med_reminders")
+}
+
+enum ReminderStatus {
+  PENDING
+  SENT
+  ACKNOWLEDGED
+}
+
+model MedIntake {
+  id            String   @id @default(uuid())
+  reminderId    String   @map("reminder_id")
+  status        IntakeStatus
+  takenAt       DateTime? @map("taken_at")
+  skippedReason String?   @map("skipped_reason")
+  confirmedBy   String?   @map("confirmed_by")
+
+  reminder MedReminder @relation(fields: [reminderId], references: [id], onDelete: Cascade)
+
+  @@map("med_intakes")
+}
+
+enum IntakeStatus {
+  TAKEN
+  SKIPPED
+  MISSED
+  LATE
+}
+
+// ============================================
+// CONVERSATIONS & IA
+// ============================================
+
+model Conversation {
+  id               String    @id @default(uuid())
+  patientId        String    @map("patient_id")
+  type             ConversationType @default(CHAT)
+  startedAt        DateTime  @default(now()) @map("started_at")
+  endedAt          DateTime? @map("ended_at")
+  summary          String?
+  redFlagTriggered Boolean   @default(false) @map("red_flag_triggered")
+  escalated        Boolean   @default(false)
+
+  patient  Patient   @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  messages Message[]
+
+  @@index([patientId, startedAt(sort: Desc)])
+  @@map("conversations")
+}
+
+enum ConversationType {
+  CHAT
+  SCAN
+  LABO
+  CONSULT_PREP
+}
+
+model Message {
+  id             String     @id @default(uuid())
+  conversationId String     @map("conversation_id")
+  role           MessageRole
+  content        String
+  confidence     Confidence?
+  sources        String[]   @default([])
+  redFlag        Boolean    @default(false) @map("red_flag")
+  redFlagLevel   String?    @map("red_flag_level")
+  tokensIn       Int?       @map("tokens_in")
+  tokensOut      Int?       @map("tokens_out")
+  modelUsed      String?    @map("model_used")
+  latencyMs      Int?       @map("latency_ms")
+  createdAt      DateTime   @default(now()) @map("created_at")
+
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  auditLogs    AuditLog[]
+
+  @@index([conversationId, createdAt])
+  @@map("messages")
+}
+
+enum MessageRole {
+  USER
+  ASSISTANT
+  SYSTEM
+}
+
+enum Confidence {
+  HIGH
+  MEDIUM
+  LOW
+}
+
+model AuditLog {
+  id         String   @id @default(uuid())
+  messageId  String   @map("message_id")
+  eventType  String   @map("event_type")
+  details    Json?
+  reviewedBy String?  @map("reviewed_by")
+  reviewedAt DateTime? @map("reviewed_at")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  message Message @relation(fields: [messageId], references: [id], onDelete: Cascade)
+
+  @@index([messageId, eventType])
+  @@map("audit_logs")
+}
+
+// ============================================
+// RESULTATS LABO
+// ============================================
+
+model LabReport {
+  id                String   @id @default(uuid())
+  patientId         String   @map("patient_id")
+  labName           String?  @map("lab_name")
+  reportDate        DateTime @map("report_date")
+  importMethod      String   @map("import_method")
+  rawDocumentUrl    String?  @map("raw_document_url")
+  parsedAt          DateTime? @map("parsed_at")
+  parsingConfidence Float?   @map("parsing_confidence")
+  summary           String?
+  nbNormal          Int      @default(0) @map("nb_normal")
+  nbAbnormal        Int      @default(0) @map("nb_abnormal")
+
+  patient Patient     @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  results LabResult[]
+
+  @@map("lab_reports")
+}
+
+model LabResult {
+  id            String  @id @default(uuid())
+  reportId      String  @map("report_id")
+  loincCode     String? @map("loinc_code")
+  testName      String  @map("test_name")
+  value         Float
+  unit          String
+  refMin        Float?  @map("ref_min")
+  refMax        Float?  @map("ref_max")
+  status        LabResultStatus
+  aiExplanation String? @map("ai_explanation")
+  aiConfidence  Float?  @map("ai_confidence")
+
+  report LabReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+
+  @@index([reportId, status])
+  @@map("lab_results")
+}
+
+enum LabResultStatus {
+  NORMAL
+  LOW
+  HIGH
+  CRITICAL
+}
+
+// ============================================
+// PRESCRIPTIONS
+// ============================================
+
+model Prescription {
+  id             String   @id @default(uuid())
+  patientId      String   @map("patient_id")
+  prescriberId   String?  @map("prescriber_id")
+  datePrescribed DateTime @map("date_prescribed")
+  dateEnd        DateTime? @map("date_end")
+  status         String   @default("active")
+  isAld          Boolean  @default(false) @map("is_ald")
+  scanImageUrl   String?  @map("scan_image_url")
+
+  items PrescriptionItem[]
+
+  @@map("prescriptions")
+}
+
+model PrescriptionItem {
+  id             String @id @default(uuid())
+  prescriptionId String @map("prescription_id")
+  medicationId   String @map("medication_id")
+  dosage         String?
+  frequency      String?
+  durationDays   Int?   @map("duration_days")
+  instructions   String?
+
+  prescription Prescription @relation(fields: [prescriptionId], references: [id], onDelete: Cascade)
+  medication   Medication   @relation(fields: [medicationId], references: [id])
+
+  @@map("prescription_items")
+}
+
+// ============================================
+// AIDANTS & FAMILLE
+// ============================================
+
+model Caregiver {
+  id           String @id @default(uuid())
+  firstName    String @map("first_name")
+  lastName     String @map("last_name")
+  phone        String?
+  email        String? @unique
+  authProvider String? @map("auth_provider")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  links CaregiverLink[]
+
+  @@map("caregivers")
+}
+
+model CaregiverLink {
+  id              String    @id @default(uuid())
+  caregiverId     String    @map("caregiver_id")
+  patientId       String    @map("patient_id")
+  role            String
+  permissions     Json
+  consentGivenAt  DateTime  @map("consent_given_at")
+  consentRevokedAt DateTime? @map("consent_revoked_at")
+  isActive        Boolean   @default(true) @map("is_active")
+
+  caregiver Caregiver @relation(fields: [caregiverId], references: [id], onDelete: Cascade)
+  patient   Patient   @relation(fields: [patientId], references: [id], onDelete: Cascade)
+
+  @@map("caregiver_links")
+}
+
+// ============================================
+// ALERTES
+// ============================================
+
+model Alert {
+  id             String   @id @default(uuid())
+  patientId      String   @map("patient_id")
+  type           AlertType
+  severity       AlertSeverity
+  message        String
+  sentVia        String?  @map("sent_via")
+  acknowledged   Boolean  @default(false)
+  acknowledgedAt DateTime? @map("acknowledged_at")
+  createdAt      DateTime @default(now()) @map("created_at")
+
+  patient Patient @relation(fields: [patientId], references: [id], onDelete: Cascade)
+
+  @@index([patientId], map: "idx_alerts_patient_unack")
+  @@map("alerts")
+}
+
+enum AlertType {
+  MISSED_MED
+  RED_FLAG
+  ABNORMAL_LABO
+  INACTIVITY
+  FALL_DETECTED
+}
+
+enum AlertSeverity {
+  INFO
+  WARNING
+  URGENT
+}
+
+// ============================================
+// WEARABLES & METRIQUES SANTE
+// ============================================
+
+model WearableDevice {
+  id           String   @id @default(uuid())
+  patientId    String   @map("patient_id")
+  provider     String
+  deviceModel  String?  @map("device_model")
+  accessToken  String?  @map("access_token")
+  refreshToken String?  @map("refresh_token")
+  lastSyncAt   DateTime? @map("last_sync_at")
+  isActive     Boolean  @default(true) @map("is_active")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  patient Patient       @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  metrics HealthMetric[]
+
+  @@map("wearable_devices")
+}
+
+model HealthMetric {
+  id             String   @id @default(uuid())
+  deviceId       String?  @map("device_id")
+  patientId      String   @map("patient_id")
+  type           MetricType
+  value          Float
+  valueSecondary Float?   @map("value_secondary")
+  unit           String
+  measuredAt     DateTime @map("measured_at")
+  isAbnormal     Boolean  @default(false) @map("is_abnormal")
+  alertTriggered Boolean  @default(false) @map("alert_triggered")
+
+  device  WearableDevice? @relation(fields: [deviceId], references: [id])
+  patient Patient         @relation(fields: [patientId], references: [id], onDelete: Cascade)
+
+  @@index([patientId, type, measuredAt(sort: Desc)])
+  @@map("health_metrics")
+}
+
+enum MetricType {
+  HEART_RATE
+  BLOOD_PRESSURE
+  SPO2
+  WEIGHT
+  TEMPERATURE
+  SLEEP
+  STEPS
+  ECG
+}
