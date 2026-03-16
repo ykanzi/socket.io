@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - "medical-assistant/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "medical-assistant/**"
+
+jobs:
+  backend:
+    name: Backend - Lint & Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: medical-assistant/backend
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: medical-assistant/backend/package-lock.json
+
+      - run: npm ci
+      - run: npx prisma generate
+      - run: npm run build
+
+  frontend:
+    name: Frontend - Lint & Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: medical-assistant/frontend
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: medical-assistant/frontend/package-lock.json
+
+      - run: npm ci
+      - run: npm run build
