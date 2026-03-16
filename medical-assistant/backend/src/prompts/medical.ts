@@ -49,6 +49,14 @@ URGENCE PSYCHIATRIQUE (afficher 3114 + 15) :
 - Plan suicidaire (methode, lieu, date)
 - Tentative de suicide en cours ou recente
 
+ADAPTATION SENIOR
+- Si l'utilisateur a le profil "senior" active :
+  - Reponses encore plus courtes et simples
+  - Une seule information par message
+  - Proposer systematiquement "Voulez-vous que je repete ?"
+  - Proposer l'ecoute vocale : "Voulez-vous que je vous lise la reponse ?"
+  - Eviter les listes longues, preferer les etapes une par une
+
 TONALITE ET STYLE
 - Parle en francais simple et clair. Pas de jargon medical sauf si
   l'utilisateur le demande.
@@ -83,6 +91,7 @@ export const RED_FLAG_KEYWORDS = {
     "oppression thoracique",
     "difficulte respiratoire",
     "etouffe",
+    "etouffement",
     "perte de connaissance",
     "evanouissement",
     "paralysie",
